@@ -1,0 +1,367 @@
+/* ./resources/css/app.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Header Styles */
+.bg-blue-500 {
+    background-color: #3490dc;
+}
+.text-white {
+    color: #fff;
+}
+/* Add more styles for the navigation menu, slider, search bar, hostel cards, and footer as needed. */
+*{
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+#hero{
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80) center center no-repeat;
+    background-size: cover;
+    top: 0;
+    padding: 80px 20px;
+    width: 100%;
+    object-fit: cover;
+    position: relative;
+    text-align: center;
+    margin-top: 50px;
+    z-index: 0;
+}
+#login{
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(https://images.unsplash.com/photo-1596276020587-8044fe049813?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1539&q=80) center center no-repeat;
+    background-size: cover;
+    top: 0;
+    padding: 80px 20px;
+    width: 100%;
+    object-fit: cover;
+    position: relative;
+    text-align: center;
+    margin-top: 50px;
+    z-index: 0;
+}
+
+.line{
+    width: 20%;
+    text-align: center;
+    border-top: 1px solid rgba(139, 157, 175, 0.37); /* You can change the color by modifying the hex code */
+  }
+.line1{
+    width: 10%;
+    text-align: center;
+    border-top: 2px solid rgb(255, 255, 255); /* You can change the color by modifying the hex code */
+  }
+
+  .line2{
+    width: 10%;
+    text-align: center;
+    border-top: 2px solid rgba(139, 157, 175, 0.37); /* You can change the color by modifying the hex code */
+  }
+  .line3{
+    width: 10%;
+    text-align: center;
+    border-top: 2px solid #008bfd; /* You can change the color by modifying the hex code */
+  }
+  .content-wrap{
+    position: relative;
+    width: 100%;
+    padding-bottom: 2.5rem;
+    min-height: 100vh;
+  }
+  footer{
+   
+    width: 100%;
+    bottom: 0;
+    height: 2.5rem;
+    
+  }
+
+  a {
+    transition: 0.5s;
+    text-decoration: none;
+    text-decoration-color: none;
+  }
+  a:hover {
+    text-decoration: none !important;
+    text-decoration-color: none !important;
+  }
+  
+  .logo {
+    color: #173058;
+    display: flex;
+  }
+  .logo p {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 0 0 -8px;
+    padding-top: 10px;
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+  }
+  .logo p:hover {
+    color: #009bd9;
+  }
+  .logo p span {
+    color: #71706e !important;
+  }
+  
+  .page-header {
+    padding: 30px 0 15px 0;
+    margin-bottom: 30px;
+    background: #fff;
+    color: #023b6d;
+    border-bottom: 2px solid #e0f0fe;
+    position: relative;
+  }
+  .page-header:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: #009bd9;
+    border-right: 3px solid #fff;
+    bottom: -2px;
+    left: 0;
+  }
+  .page-header .page-title {
+    font-size: 27px;
+    padding: 0;
+    margin: 0;
+    color: #023b6d;
+    font-weight: 600;
+    background: #fff;
+  }
+  .page-content {
+    font-size: 18px;
+    font-weight: 300;
+  }
+  
+
+  #banner {
+    margin-top: 50px;
+  }
+  #banner .top-banner {
+    top: 0;
+    padding: 80px 20px;
+    width: 100%;
+    height: 200px;
+    text-align: center;
+    margin-top: 50px;
+  }
+  /*about end*/
+
+  
+
+.stats{
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.5)
+  ),
+  url(../images/cta-bg.jpg) center center no-repeat;
+  background-size: cover;
+  padding: 80px 0;
+  position: relative;
+  z-index: 1;
+
+}
+
+#category{
+  background: linear-gradient(
+    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0.5)
+  ),
+  url(../images/marketing-bg8.png) center center no-repeat;
+  background-size: cover;
+  padding: 80px 0;
+  position: relative;
+  z-index: 1;
+
+}
+
+.card-title {
+  height: 15px;
+  font-weight: 300;
+  text-align: left;
+  font-size: 19px;
+  color: darkslategray;
+}
+
+.card .card-body .card-text i {
+  color: darkslategray;
+  padding-right: 10px;
+  font-size: 20px;
+}
+
+.card .card-body h5 {
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+
+.card .card-body span {
+  color: lightslategray;
+  font-weight: 500;
+}
+
+.img-hostel {
+  position: relative;
+}
+
+.img-price {
+  position: absolute;
+  padding: 10px 20px;
+  color: #fff;
+  background: #009bd9b8;
+  top: 0;
+  right: 0;
+  border-bottom-left-radius: 10px;
+}
+
+.img-price h6 {
+  color: #fff;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+*--------------------------------------------------------------
+ hostel 
+--------------------------------------------------------------*/
+.hostel .card {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+  height: 100% auto;
+  width: 100%;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  border: none;
+  cursor: pointer;
+}
+.hostel .hostel-item {
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+
+.hostel .hostel-item img {
+  position: relative;
+  top: 0;
+  transition: all 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+  height: 240px;
+}
+
+.hostel .hostel-item .hostel-info {
+  opacity: 0;
+  position: absolute;
+  left: 15px;
+  right: 15px;
+  bottom: -50px;
+  z-index: 3;
+  transition: all ease-in-out 0.3s;
+  background: #009bd9;
+  padding: 15px 20px;
+}
+
+.hostel .hostel-item .hostel-info h4 {
+  font-size: 18px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.hostel .hostel-item .hostel-info p {
+  color: #fff;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.hostel .hostel-item .hostel-info .preview-link,
+.hostel .hostel-item .hostel-info .details-link {
+  position: absolute;
+  right: 50px;
+  font-size: 45px;
+  top: calc(50% - 18px);
+  color: white;
+  transition: ease-in-out 0.3s;
+}
+
+.hostel .hostel-item .hostel-info .preview-link:hover,
+.hostel .hostel-item .hostel-info .details-link:hover {
+  color: #8ec8fb;
+}
+
+.hostel .hostel-item .hostel-info .details-link {
+  right: 15px;
+}
+
+.hostel .hostel-item:hover img {
+  top: -30px;
+}
+
+.hostel .hostel-item:hover .hostel-info {
+  opacity: 1;
+  bottom: 0;
+}
+
+/*--------------------------------------------------------------
+# hostel
+--------------------------------------------------------------*/
+.hostel .hostel-item {
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+
+.hostel .hostel-item img {
+  position: relative;
+  top: 0;
+  transition: all 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.hostel .hostel-item .hostel-info {
+  opacity: 0;
+  position: absolute;
+  left: 15px;
+  right: 15px;
+  bottom: -50px;
+  z-index: 3;
+  transition: all ease-in-out 0.3s;
+  background: #009bd9;
+  padding: 15px 20px;
+}
+
+.hostel .hostel-item .hostel-info h4 {
+  font-size: 18px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.hostel .hostel-item .hostel-info p {
+  color: #fff;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.hostel .hostel-item .hostel-info .preview-link,
+.hostel .hostel-item .hostel-info .details-link {
+  position: absolute;
+  right: 50px;
+  /* font-size: 30px; */
+  top: calc(50% - 18px);
+  color: #fff;
+  transition: ease-in-out 0.3s;
+}
+
+.hostel .hostel-item .hostel-info .preview-link:hover,
+.hostel .hostel-item .hostel-info .details-link:hover {
+  color: #8ec8fb;
+}
+
+.hostel .hostel-item .hostel-info .details-link {
+  right: 15px;
+}
+
+.hostel .hostel-item:hover img {
+  top: -30px;
+}
+
+.hostel .hostel-item:hover .hostel-info {
+  opacity: 1;
+  bottom: 0;
+}
