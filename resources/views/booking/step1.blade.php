@@ -6,9 +6,11 @@
     <div class="flex items-center justify-center space-x-1 my-5">
 
         <div class="flex items-center justify-center space-x-1">
-            <div class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white text-2xl font-bold">
+            <div
+                class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white text-2xl font-bold">
                 <svg class="h-6 w-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M9.707 18.707l10-10a1 1 0 0 0-1.414-1.414l-9.293 9.293l-3.293-3.293a1 1 0 1 0-1.414 1.414l4 4a1 1 0 0 0 1.414 0z" />
+                    <path
+                        d="M9.707 18.707l10-10a1 1 0 0 0-1.414-1.414l-9.293 9.293l-3.293-3.293a1 1 0 1 0-1.414 1.414l4 4a1 1 0 0 0 1.414 0z" />
                 </svg>
             </div>
             <p class="text-gray-800 text-sm font-bold">Your Selection</p>
@@ -16,13 +18,15 @@
             </div>
         </div>
         <div class="flex items-center justify-center space-x-1">
-            <div class="w-12 h-12 rounded-full bg-gray-200 border-2 border-blue-500 flex items-center justify-center text-gray-600 text-2xl font-bold">
+            <div
+                class="w-12 h-12 rounded-full bg-gray-200 border-2 border-blue-500 flex items-center justify-center text-gray-600 text-2xl font-bold">
                 2</div>
             <p class="text-gray-800 text-sm font-bold">Reserve Room</p>
             <div class="h-0.5 bg-gray-700 w-60 border-r-3 border-gray-400">
             </div>
             <div class="flex items-center justify-center space-x-1">
-                <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 text-2xl font-bold">
+                <div
+                    class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 text-2xl font-bold">
                     3</div>
                 <p class="text-gray-800 text-sm font-bold">Make Payment</p>
             </div>
@@ -30,7 +34,17 @@
         </div>
 
     </div>
-
+    @if(session('message'))
+    <div class="toast" style="position: absolute; top: 0; right: 0;">
+        <div class="toast-header">
+            <strong class="mr-auto">Message</strong>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">&times;</button>
+        </div>
+        <div class="toast-body">
+            {{ session('message') }}
+        </div>
+    </div>
+    @endif
 
     <div class="container mx-auto px-4">
         <div class="flex flex-wrap -mx-4">
@@ -78,23 +92,36 @@
                         <!-- First name -->
                         <div>
                             <label for="first_name" class="text-gray-600 font-medium">First name</label>
-                            <input type="text" id="first_name" name="first_name" placeholder="Enter your first name" value="{{$user->fname}}" class="w-full bg-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                            <input type="text" id="first_name" name="first_name" placeholder="Enter your first name"
+                                value="{{$user->fname}}"
+                                class="w-full bg-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                required>
                         </div>
                         <!-- Last name -->
                         <div>
                             <label for="last_name" class="text-gray-600 font-medium">Last name</label>
-                            <input type="text" id="last_name" name="last_name" placeholder="Enter your last name" value="{{$user->lname}}" class="w-full bg-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                            <input type="text" id="last_name" name="last_name" placeholder="Enter your last name"
+                                value="{{$user->lname}}"
+                                class="w-full bg-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                required>
                         </div>
                         <!-- Email address -->
                         <div>
                             <label for="email" class="text-gray-600 font-medium">Email address</label>
-                            <input type="email" id="email" name="email" placeholder="Enter your email address" value="{{$user->email}}" class="w-full bg-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                            <input type="email" id="email" name="email" placeholder="Enter your email address"
+                                value="{{$user->email}}"
+                                class="w-full bg-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                required>
                         </div>
                         <!-- Country/region -->
                         <div>
                             <label for="school" class="text-gray-600 font-medium">Your school/campus</label>
-                            <input type="email" id="school" name="school" placeholder="Enter your school name" value="{{$hostel->school->name}}" class="w-full bg-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                            <input type="email" id="school" name="school" placeholder="Enter your school name"
+                                value="{{$hostel->school->name}}"
+                                class="w-full bg-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                required>
                         </div>
+                        <input type="hidden" name="room_id" value="{{$room->id}}">
                     </form>
                 </div>
 
@@ -106,12 +133,16 @@
                         <!-- Telephone number -->
                         <div>
                             <label for="phone" class="text-gray-600 font-medium">Telephone number</label>
-                            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" class="w-full bg-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number"
+                                class="w-full bg-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                required>
                         </div>
                         <!-- Email preferences -->
                         <div>
                             <label for="email_preferences" class="text-gray-600 font-medium">Email preferences</label>
-                            <select id="email_preferences" name="email_preferences" class="w-full bg-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                            <select id="email_preferences" name="email_preferences"
+                                class="w-full bg-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                required>
                                 <option value="all">Send me all emails</option>
                                 <option value="important">Send me only important emails</option>
                                 <option value="none">Do not send me any emails</option>
@@ -121,11 +152,20 @@
                     </form>
                 </div>
                 <!-- Confirm button -->
-                <div class="pt-5 ml-auto">
-                    <a type="submit" id="submit-button" class="bg-blue-500 text-white px-4 py-3 rounded-lg hover:bg-blue-600">Next:
-                        Final Details <i class="bi bi-chevron-right"></i></a>
+                <div class="pt-5 float-right">
+                    <a type="submit" id="submit-button"
+                        class="bg-blue-500 text-white px-4 py-3 rounded-lg hover:bg-blue-600">Next:
+                        Payment <i class="bi bi-chevron-right"></i></a>
                 </div>
             </div>
         </div>
     </div>
     @endsection
+
+    @push('scripts')
+    <script>
+    $(document).ready(function() {
+        $('.toast').toast('show');
+    });
+    </script>
+    @endpush

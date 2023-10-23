@@ -9,31 +9,39 @@
                 <li>
                     <div class="flex items-center">
                         <a href="#" class="mr-2 text-sm font-medium text-gray-900">Hostels</a>
-                        <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor" aria-hidden="true"
-                            class="h-5 w-4 text-gray-300">
+                        <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor" aria-hidden="true" class="h-5 w-4 text-gray-300">
                             <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
                         </svg>
                     </div>
                 </li>
 
                 <li class="text-sm">
-                    <a href="#" aria-current="page"
-                        class="font-medium text-gray-500 hover:text-gray-600">{{ $hostel->name }}</a>
+                    <a href="#" aria-current="page" class="font-medium text-gray-500 hover:text-gray-600">{{ $hostel->name }}</a>
                 </li>
             </ol>
         </nav>
 
+        @if(session('message'))
+        <div class="toast" style="position: absolute; top: 0; right: 0;">
+            <div class="toast-header">
+                <strong class="mr-auto">Message</strong>
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">&times;</button>
+            </div>
+            <div class="toast-body">
+                {{ session('message') }}
+            </div>
+        </div>
+        @endif
+
         <!-- Featured Image -->
         <div class="mx-auto px-3 py-3">
             <div class="sm:overflow-hidden rounded-lg sm:rounded-lg">
-                <img src="{{$hostel->img_url}}" alt="{{$hostel->name}}"
-                    class="h-full w-full object-cover object-center">
+                <img src="{{$hostel->img_url}}" alt="{{$hostel->name}}" class="h-full w-full object-cover object-center">
             </div>
         </div>
 
         <!-- Product info -->
-        <div
-            class="mx-auto max-w-2xl px-4 pb-16 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16">
+        <div class="mx-auto max-w-2xl px-4 pb-16 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16">
             <div class="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
                 <h1 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">{{$hostel->name}}</h1>
             </div>
@@ -47,17 +55,22 @@
                 <div class="mt-6">
                     <h3 class="sr-only">Reviews</h3>
                     <div class="flex items-center">
-                        <div class="flex items-center">
-                            <!-- Active: "text-gray-900", Default: "text-gray-200" -->
-                            <i class="bi bi-star-fill text-blue-600"></i>
-                            <i class="bi bi-star-fill text-blue-600"></i>
-                            <i class="bi bi-star-fill text-blue-600"></i>
-                            <i class="bi bi-star-fill text-blue-600"></i>
-                            <i class="bi bi-star"></i>
+                        @php
+                        $rating = number_format($rating, 1);
+                        $reviews = $hostel->reviews->count();
+                        @endphp
+                        <div class="flex flex-center star-rating">
+                            @for ($i = 1; $i <= 5; $i++) @if ($rating>= $i)
+                                <i class="bi bi-star-fill text-blue-600"></i>
+                                @elseif ($rating > ($i - 1))
+                                <i class="bi bi-star-half text-blue-600"></i>
+                                @else
+                                <i class="bi bi-star text-blue-600"></i>
+                                @endif
+                                @endfor
                         </div>
-                        <p class="sr-only">4 out of 5 stars</p>
-                        <a href="#" class="ml-3 text-sm font-medium text-blue-600 hover:text-blue-500">117
-                            reviews</a>
+                        <a href="#" class="ml-3 text-sm font-medium text-blue-600 hover:text-blue-500">{{$reviews}}
+                            review/s</a>
                     </div>
                 </div>
 
@@ -68,68 +81,49 @@
                         </div>
 
                         <fieldset class="mt-4">
-                            <legend class="sr-only">Choose a size</legend>
                             <div class="grid grid-cols-4 gap-4 sm:grid-cols-8 lg:grid-cols-4">
                                 <!-- Active: "ring-2 ring-blue-500" -->
-                                <label
-                                    class="group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6 cursor-pointer  bg-white text-gray-700 shadow-sm">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
-                                    </svg>
+                                <label class="group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6 cursor-pointer  bg-white text-gray-600 shadow-sm">
+                                    <i class="fas fa-building fa-lg"></i>
 
-                                    <span class="pointer-events-none absolute -inset-px rounded-md"
-                                        aria-hidden="true"></span>
+                                    <span class="pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
                                 </label>
                                 <!-- Active: "ring-2 ring-blue-500" -->
-                                <label
-                                    class="group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6 cursor-pointer bg-white text-gray-900 shadow-sm">
-                                    <span id="size-choice-1-label"><i class="bi bi-building"></i></span>
+                                <label class="group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6 cursor-pointer bg-white text-gray-600 shadow-sm">
+                                    <i class="fas fa-bed fa-lg"></i></i>
 
-                                    <span class="pointer-events-none absolute -inset-px rounded-md"
-                                        aria-hidden="true"></span>
+                                    <span class="pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
                                 </label>
                                 <!-- Active: "ring-2 ring-blue-500" -->
-                                <label
-                                    class="group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6 cursor-pointer bg-white text-gray-900 shadow-sm">
-                                    <span id="size-choice-2-label"><i class="bi bi-building"></i></span>
+                                <label class="group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6 cursor-pointer bg-white text-gray-600 shadow-sm">
+                                    <i class="fas fa-shower fa-lg"></i>
 
-                                    <span class="pointer-events-none absolute -inset-px rounded-md"
-                                        aria-hidden="true"></span>
+                                    <span class="pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
                                 </label>
                                 <!-- Active: "ring-2 ring-blue-500" -->
-                                <label
-                                    class="group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6 cursor-pointer bg-white text-gray-900 shadow-sm">
-                                    <span id="size-choice-3-label"><i class="bi bi-water"
-                                            style="width: 25px; height: 25px"></i></span>
+                                <label class="group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6 cursor-pointer bg-white text-gray-600 shadow-sm">
+                                    <i class="fas fa-toilet fa-lg"></i>
 
-                                    <span class="pointer-events-none absolute -inset-px rounded-md"
-                                        aria-hidden="true"></span>
+                                    <span class="pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
                                 </label>
                                 <!-- Active: "ring-2 ring-blue-500" -->
-                                <label
-                                    class="group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6 cursor-pointer bg-white text-gray-900 shadow-sm">
-                                    <span id="size-choice-4-label">L</span>
+                                <label class="group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6 cursor-pointer bg-white text-gray-600 shadow-sm">
+                                    <i class="fas fa-faucet fa-lg"></i>
 
-                                    <span class="pointer-events-none absolute -inset-px rounded-md"
-                                        aria-hidden="true"></span>
+                                    <span class="pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
                                 </label>
                                 <!-- Active: "ring-2 ring-blue-500" -->
-                                <label
-                                    class="group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6 cursor-pointer bg-white text-gray-900 shadow-sm">
-                                    <span id="size-choice-5-label">XL</span>
+                                <label class="group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6 cursor-pointer bg-white text-gray-600 shadow-sm">
+                                    <i class="fas fa-eye fa-lg"></i>
 
-                                    <span class="pointer-events-none absolute -inset-px rounded-md"
-                                        aria-hidden="true"></span>
+                                    <span class="pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
                                 </label>
                             </div>
                         </fieldset>
                     </div>
 
 
-                    <a href="#"
-                        class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-blue-600 px-8 py-3 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Reserve
+                    <a href="#reserve" class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-blue-600 px-8 py-3 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Reserve
                         a Room</a>
                 </form>
             </div>
@@ -194,8 +188,7 @@
                     <div class="mb-4">
                         <div class="flex items-center mb-2">
                             <svg class="w-6 h-6 text-yellow-500 fill-current mr-2" viewBox="0 0 20 20">
-                                <path
-                                    d="M10 1l2.928 6.472 6.472.928-4.944 4.808 1.166 6.785L10 16.347l-6.622 3.118 1.166-6.785L.6 8.4l6.472-.928L10 1z" />
+                                <path d="M10 1l2.928 6.472 6.472.928-4.944 4.808 1.166 6.785L10 16.347l-6.622 3.118 1.166-6.785L.6 8.4l6.472-.928L10 1z" />
                             </svg>
                             @php
                             $date = date_create($review->created_at);
@@ -208,11 +201,9 @@
                         <div class="flex items-center">
                             @if ($review->user)
                             @if ($review->user->profile_photo_url == null)
-                            <img src="{{ asset('images/profile.png') }}" alt="{{ $review->user->fname }}"
-                                class="w-10 h-10 rounded-full mr-2">
+                            <img src="{{ asset('images/profile.png') }}" alt="{{ $review->user->fname }}" class="w-10 h-10 rounded-full mr-2">
                             @endif
-                            <img src="{{ $review->user->profile_photo_url }}" alt="{{ $review->user->fname }}"
-                                class="w-10 h-10 rounded-full mr-2">
+                            <img src="{{ $review->user->profile_photo_url }}" alt="{{ $review->user->fname }}" class="w-10 h-10 rounded-full mr-2">
                             <p class="text-sm text-gray-600">{{ $review->user->fname }}</p>
                             <p class="text-sm text-gray-600"><i class="bi bi-clock"></i> {{ $date }}</p>
                             @endif
@@ -227,7 +218,7 @@
                 </div>
             </div>
         </div>
-        <div class="mx-auto container">
+        <div id="reserve" class="mx-auto container">
             <h2 class="text-base font-semibold leading-7 text-blue-300">Available Rooms</h2>
             <table class="table-auto w-full table-stripe table-primary border-separate border border-blue-800">
                 <thead class="bg-blue-500 text-white">
@@ -249,8 +240,7 @@
                         <td class="border px-4 py-4">{{ $room->total_slots }}</td>
                         <td class="border px-4 py-4">{{ $room->available_slots }}</td>
                         <td class="border px-4 py-6">
-                            <a href="{{ route('booking.step1', ['room_id' => $room->id, 'hostel_id' => $hostel->id]) }}"
-                                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">I'll
+                            <a href="{{ route('booking.step1', ['room_id' => $room->id, 'hostel_id' => $hostel->id]) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">I'll
                                 Reserve</a>
                         </td>
                     </tr>
@@ -261,3 +251,11 @@
     </div>
 </div>
 @endsection
+
+@push('scripts')
+<script>
+    $(document).ready(function() {
+        $('.toast').toast('show');
+    });
+</script>
+@endpush

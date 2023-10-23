@@ -76,7 +76,10 @@ class HostelController extends Controller
     // Logic for displaying a specific hostel
     public function show(Hostel $hostel)
     {
-        return view('hostels.show', compact('hostel'));
+        $averageRating = Review::where('hostel_id', $hostel->id)->avg('rating');
+        $rating = is_null($averageRating) ? 0 : ($averageRating / 10) * 5;
+
+        return view('hostels.show', compact('hostel', 'rating'));
     }
 
     // Logic for displaying an edit form for a hostel
