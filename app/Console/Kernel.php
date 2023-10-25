@@ -13,6 +13,8 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule): void
     {
         // $schedule->command('inspire')->hourly();
+        // Schedule the command to run daily at midnight (adjust the time as needed)
+        $schedule->command('booking:cancel')->dailyAt('00:00');
     }
 
     /**
@@ -20,8 +22,12 @@ class Kernel extends ConsoleKernel
      */
     protected function commands(): void
     {
-        $this->load(__DIR__.'/Commands');
+        $this->load(__DIR__ . '/Commands');
 
         require base_path('routes/console.php');
     }
+
+    protected $commands = [
+        \App\Console\Commands\BookingCancelCommand::class,
+    ];
 }

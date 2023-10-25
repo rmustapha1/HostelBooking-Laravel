@@ -51,10 +51,15 @@ Route::put('/hostels/{hostel}', 'HostelController@update');
 Route::delete('/hostels/{hostel}', 'HostelController@destroy');
 
 // Booking Routes
-Route::get('booking/step1/{room_id}/{hostel_id}', [BookingController::class, 'step1'])
+Route::get('booking/step1/{room_id}', [BookingController::class, 'step1'])
     ->name('booking.step1')
     ->middleware('auth'); // Use the 'auth' middleware to protect this route
-Route::post('booking/step1', 'BookingController@saveStep1');
+Route::post('booking/saveBooking', [BookingController::class, 'saveBooking']);
+
+
+Route::get('booking/step2/{bookingId}', [BookingController::class, 'step2'])
+    ->name('booking.step2')
+    ->middleware('auth'); // Use the 'auth' middleware to protect this route
 
 // Payment Routes
 Route::get('/payments', 'PaymentController@index');
