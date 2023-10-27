@@ -1,14 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container px-2 py-8 mt-20 items-center justify-center">
+<div id="booking" class="container px-2 py-8 mt-20 items-center justify-center">
     <!-- Steps UI -->
     <div class="flex items-center justify-center space-x-1 my-5 sm:overflow-x-hidden">
 
         <div class="flex items-center justify-center space-x-1">
-            <div class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white text-2xl font-bold">
+            <div
+                class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white text-2xl font-bold">
                 <svg class="h-6 w-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M9.707 18.707l10-10a1 1 0 0 0-1.414-1.414l-9.293 9.293l-3.293-3.293a1 1 0 1 0-1.414 1.414l4 4a1 1 0 0 0 1.414 0z" />
+                    <path
+                        d="M9.707 18.707l10-10a1 1 0 0 0-1.414-1.414l-9.293 9.293l-3.293-3.293a1 1 0 1 0-1.414 1.414l4 4a1 1 0 0 0 1.414 0z" />
                 </svg>
             </div>
             <p class="text-gray-800 text-sm font-bold">Your Selection</p>
@@ -16,13 +18,15 @@
             </div>
         </div>
         <div class="flex items-center justify-center space-x-1">
-            <div class="w-12 h-12 rounded-full bg-gray-200 border-2 border-blue-500 flex items-center justify-center text-gray-600 text-2xl font-bold">
+            <div
+                class="w-12 h-12 rounded-full bg-gray-200 border-2 border-blue-500 flex items-center justify-center text-gray-600 text-2xl font-bold">
                 2</div>
             <p class="text-gray-800 text-sm font-bold">Reserve Room</p>
             <div class="h-0.5 bg-gray-700 w-60 border-r-3 border-gray-400">
             </div>
             <div class="flex items-center justify-center space-x-1">
-                <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 text-2xl font-bold">
+                <div
+                    class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 text-2xl font-bold">
                     3</div>
                 <p class="text-gray-800 text-sm font-bold">Make Payment</p>
             </div>
@@ -30,19 +34,6 @@
         </div>
 
     </div>
-    @if($errors->any())
-    <div class="toast" style="position: absolute; top: 0; right: 0;">
-        <div class="toast-header">
-            <strong class="mr-auto">Message</strong>
-            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">&times;</button>
-        </div>
-        @foreach ($errors->all() as $error)
-        <div class="toast-body">
-            {{ $error}}
-        </div>
-        @endforeach
-    </div>
-    @endif
 
     <div class="container px-2">
         <div class="row -mx-4">
@@ -83,7 +74,7 @@
             </div>
             <div class="w-full col-lg-8 px-2">
                 <!-- Sign in to book your details or register to manage your booking on the go! -->
-                <form id="booking-form" method="post" action="{{route('saveBooking')}}">
+                <form id="booking-form" method="post" action="{{route('booking.saveBooking')}}">
                     @csrf
                     <div class="border-gray-300 border-2 rounded-sm p-4 mb-3">
                         <h2 class="text-2xl font-medium text-gray-800">Continue to book with your details.</h2>
@@ -92,22 +83,34 @@
                             <!-- First name -->
                             <div class="col-md-6 mb-3">
                                 <label for="first_name" class="text-gray-600 font-medium">First name</label>
-                                <input type="text" id="first_name" name="fname" placeholder="Enter your first name" value="{{$user->fname}}" class="w-full bg-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                                <input type="text" id="first_name" name="fname" placeholder="Enter your first name"
+                                    value="{{$user->fname}}"
+                                    class="w-full bg-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    required>
                             </div class="col-md-6 mb-3">
                             <!-- Last name -->
                             <div class="col-md-6 mb-3">
                                 <label for="last_name" class="text-gray-600 font-medium">Last name</label>
-                                <input type="text" id="last_name" name="lname" placeholder="Enter your last name" value="{{$user->lname}}" class="w-full bg-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                                <input type="text" id="last_name" name="lname" placeholder="Enter your last name"
+                                    value="{{$user->lname}}"
+                                    class="w-full bg-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    required>
                             </div>
                             <!-- Email address -->
                             <div class="col-md-6 mb-3">
                                 <label for="email" class="text-gray-600 font-medium">Email address</label>
-                                <input type="email" id="email" name="email" placeholder="Enter your email address" value="{{$user->email}}" class="w-full bg-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                                <input type="email" id="email" name="email" placeholder="Enter your email address"
+                                    value="{{$user->email}}"
+                                    class="w-full bg-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    required>
                             </div>
                             <!-- Country/region -->
                             <div class="col-md-6 mb-3">
                                 <label for="school" class="text-gray-600 font-medium">Your school/campus</label>
-                                <input type="text" id="school" name="school" placeholder="Enter your school name" value="{{$hostel->school->name}}" class="w-full bg-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                                <input type="text" id="school" name="school" placeholder="Enter your school name"
+                                    value="{{$hostel->school->name}}"
+                                    class="w-full bg-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    required>
                             </div>
                             <input type="hidden" name="room_id" value="{{$room->id}}">
                             <input type="hidden" name="hostel_id" value="{{$hostel->id}}">
@@ -122,13 +125,17 @@
                             <!-- Telephone number -->
                             <div class="col-md-6 mb-3">
                                 <label for="phone" class="text-gray-600 font-medium">Telephone number</label>
-                                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" class="w-full bg-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number"
+                                    class="w-full bg-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    required>
                             </div>
                             <!-- Email preferences -->
                             <div class="col-md-6 mb-3">
                                 <label for="email_preferences" class="text-gray-600 font-medium">Email
                                     preferences</label>
-                                <select id="email_preferences" name="email_preferences" class="w-full bg-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                                <select id="email_preferences" name="email_preferences"
+                                    class="w-full bg-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    required>
                                     <option value="all">Send me all emails</option>
                                     <option value="important">Send me only important emails</option>
                                     <option value="none">Do not send me any emails</option>
@@ -145,12 +152,18 @@
                             <!-- Check-In-Date -->
                             <div class="col-md-6 mb-3">
                                 <label for="check_in_date" class="text-gray-600 font-medium">Check-In-Date</label>
-                                <input type="date" id="check_in_date" name="check_in_date" placeholder="Enter your check-in date" class="w-full bg-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                                <input type="date" id="check_in_date" name="check_in_date"
+                                    placeholder="Enter your check-in date"
+                                    class="w-full bg-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    required>
                             </div>
                             <!-- Check-Out-Date -->
                             <div class="col-md-6 mb-3">
                                 <label for="check_out_date" class="text-gray-600 font-medium">Check-Out-Date</label>
-                                <input type="date" id="check_out_date" name="check_out_date" placeholder="Enter your check-out date" class="w-full bg-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                                <input type="date" id="check_out_date" name="check_out_date"
+                                    placeholder="Enter your check-out date"
+                                    class="w-full bg-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    required>
                             </div>
 
                         </div>
@@ -159,39 +172,44 @@
                     </div>
                     <!-- Confirm button -->
                     <div class="pt-5 float-right">
-                        <button type="submit" id="submit-button" class="bg-blue-500 text-white px-4 py-3 rounded-lg hover:bg-blue-600">
+                        <button type="submit" id="submit-button"
+                            class="bg-blue-500 text-white px-4 py-3 rounded-lg hover:bg-blue-600">
                             <span id="submit-text">Next: Payment <i class="bi bi-chevron-right"></i></span>
-                            <img id="submit-loader" src="{{asset('images/loader.gif')}}" alt="Loading..." style="display:block;">
+                            <img id="submit-loader" src="{{asset('images/loader.gif')}}" alt="Loading..."
+                                style="display:none;">
                         </button>
                     </div>
                 </form>
             </div>
         </div>
-        @endsection
+    </div>
+    @endsection
 
-        @push('scripts')
-        <script>
-            $(document).ready(function() {
-                $('.toast').toast('show');
-            });
+    @push('scripts')
+    <script>
+    // Get references to the button, submit-loader, and submit-text elements
+    var button = document.getElementById("submit-button");
+    var submitLoader = document.getElementById("submit-loader");
+    var submitText = document.getElementById("submit-text");
 
-            // Auto select the check-in-date and check-out-date
-            $(document).ready(function() {
-                // Get the check-in-date input element
-                const checkInDateInput = document.getElementById('check_in_date');
-                // Get the check-out-date input element
-                const checkOutDateInput = document.getElementById('check_out_date');
+    // Add a click event listener to the button
+    button.addEventListener("click", function() {
+        // Disable the button to prevent multiple clicks
+        button.disabled = true;
 
-                // Add an event listener to the check-in-date input element
-                checkInDateInput.addEventListener('change', function() {
-                    // Get the check-in-date value
-                    const checkInDateValue = new Date(this.value);
-                    // Add 1 year to the check-in-date value
-                    const checkOutDateValue = new Date(checkInDateValue.getFullYear() + 1, checkInDateValue
-                        .getMonth(), checkInDateValue.getDate());
-                    // Set the check-out-date value
-                    checkOutDateInput.valueAsDate = checkOutDateValue;
-                });
-            });
-        </script>
-        @endpush
+        // Show the loader and hide the text
+        submitLoader.style.display = "block";
+        submitText.style.display = "none";
+
+        // Simulate a delay for demonstration (you can replace this with your actual form submission logic)
+        setTimeout(function() {
+            // Re-enable the button
+            button.disabled = false;
+
+            // Hide the loader and show the text
+            submitLoader.style.display = "none";
+            submitText.style.display = "block";
+        }, 3000); // Simulating a 3-second delay; replace with your actual logic
+    });
+    </script>
+    @endpush

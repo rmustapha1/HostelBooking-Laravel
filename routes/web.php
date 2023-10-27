@@ -8,6 +8,7 @@ use App\Http\Controllers\HostelController;
 use App\Http\Controllers\SchoolController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\PaymentController;
+use App\Models\Payment;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,12 +55,19 @@ Route::delete('/hostels/{hostel}', 'HostelController@destroy');
 Route::get('booking/step1/{room_id}', [BookingController::class, 'step1'])
     ->name('booking.step1')
     ->middleware('auth'); // Use the 'auth' middleware to protect this route
-Route::post('booking/saveBooking', [BookingController::class, 'saveBooking']);
-
-
+Route::post('booking/saveBooking', [BookingController::class, 'saveBooking'])->name('booking.saveBooking');
 Route::get('booking/step2/{bookingId}', [BookingController::class, 'step2'])
     ->name('booking.step2')
     ->middleware('auth'); // Use the 'auth' middleware to protect this route
+Route::get('booking/invoice/{bookingId}', [PaymentController::class, 'invoice'])->name('booking.invoice');
+
+
+// Payment Routes
+Route::post('/pay', [PaymentController::class, 'redirectToGateway'])->name('pay');
+Route::get('/payment/callback', [PaymentController::class, 'handleGatewayCallback']);
+
+
+
 
 // Payment Routes
 Route::get('/payments', 'PaymentController@index');
