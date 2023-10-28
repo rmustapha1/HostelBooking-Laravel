@@ -46,7 +46,7 @@ class BookingController extends Controller
         $user_id->save();
 
         // Second Logic: Check if the user has an existing booking with "Reserved" or "Completed" status
-        $existingBooking = Booking::where('student_id', $user_id)
+        $existingBooking = Booking::where('user_id', $user_id)
             ->whereIn('status', ['Reserved', 'Confirmed'])
             ->first();
 
@@ -61,7 +61,7 @@ class BookingController extends Controller
         if ($room && ($room->available_slots !== 0 && $room->available_slots !== null)) {
             // Insert into the bookings table
             $booking = new Booking();
-            $booking->student_id = $user->id;
+            $booking->user_id = $user->id;
             $booking->room_id = $request->room_id;
             $booking->check_in_date = $request->check_in_date;
             $booking->check_out_date = $request->check_out_date;
@@ -88,7 +88,7 @@ class BookingController extends Controller
         $booking = Booking::find($bookingId);
         $room = Room::find($booking->room_id);
         $hostel = Hostel::find($room->hostel_id);
-        $user = User::find($booking->student_id); // If you are using authentication
+        $user = User::find($booking->user_id); // If you are using authentication
 
 
         $hostelId = $hostel->id; // Replace with the actual hostel ID

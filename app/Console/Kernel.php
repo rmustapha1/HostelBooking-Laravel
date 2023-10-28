@@ -14,7 +14,7 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')->hourly();
         // Schedule the command to run daily at midnight (adjust the time as needed)
-        $schedule->command('booking:cancel')->dailyAt('00:00');
+        $schedule->command('bookings:cancel-expired')->hourly(); // Adjust the frequency as needed
     }
 
     /**
@@ -28,6 +28,6 @@ class Kernel extends ConsoleKernel
     }
 
     protected $commands = [
-        \App\Console\Commands\BookingCancelCommand::class,
+        Commands\CancelExpiredBookings::class,
     ];
 }

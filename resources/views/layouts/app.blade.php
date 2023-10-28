@@ -67,7 +67,7 @@
 
                     <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg" id="dropdownMenu" style="display: none;">
                         <div class="py-1 rounded-md bg-white shadow-xs" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-                            <a href="#" class="block px-4 py-2 text-sm font-semibold leading-6 text-gray-700 hover:bg-gray-100" role="menuitem">My Profile</a>
+                            <a href="{{route('user.show', ['user_id' => auth()->user()->id])}}" class="block px-4 py-2 text-sm font-semibold leading-6 text-gray-700 hover:bg-gray-100" role="menuitem">My Profile</a>
                             <a href="#" class="block px-4 py-2 text-sm font-semibold leading-6 text-gray-700 hover:bg-gray-100" role="menuitem">Change Password</a>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf

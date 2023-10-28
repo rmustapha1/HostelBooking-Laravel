@@ -40,9 +40,10 @@ class UserController extends Controller
     }
 
     // Logic for displaying a specific user
-    public function show(User $user)
+    public function show(User $user_id)
     {
-        return view('users.show', compact('user'));
+        $user = User::find($user_id);
+        return view('users.profile', compact('user'));
     }
 
     // Logic for displaying an edit form for a user
@@ -65,7 +66,8 @@ class UserController extends Controller
         // Update the user
         $user->update($validatedData);
 
-        return redirect()->route('users.index')->with('success', 'User updated successfully.');
+
+        return back()->with('success', 'User updated successfully.');
     }
 
     // Logic for deleting a user

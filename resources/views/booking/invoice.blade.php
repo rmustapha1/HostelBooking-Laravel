@@ -19,72 +19,72 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon-16x16.png') }}">
     <link rel="manifest" href="{{ asset('images/site.webmanifest') }}">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            font-size: 14px;
-            line-height: 1.5;
-            margin: 0;
-            padding: 0;
-        }
+    body {
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        line-height: 1.5;
+        margin: 0;
+        padding: 0;
+    }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-        }
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+    }
 
-        /* h1 {
+    /* h1 {
         font-size: 24px;
         margin-top: 0;
     } */
-        .centered {
-            text-align: center;
+    .centered {
+        text-align: center;
+    }
+
+    .font-black {
+        font-weight: 900;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    table th,
+    table td {
+        padding: 10px;
+        border: 1px solid #ccc;
+        text-align: left;
+    }
+
+    table th {
+        background-color: #f2f2f2;
+    }
+
+    .text-right {
+        text-align: right;
+    }
+
+    .text-bold {
+        font-weight: bold;
+    }
+
+    @media print {
+        .container {
+            border: none;
         }
 
-        .font-black {
-            font-weight: 900;
+        * {
+            font-size: 12px;
+            line-height: 20px;
         }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
+        .no-print {
+            display: none !important;
         }
-
-        table th,
-        table td {
-            padding: 10px;
-            border: 1px solid #ccc;
-            text-align: left;
-        }
-
-        table th {
-            background-color: #f2f2f2;
-        }
-
-        .text-right {
-            text-align: right;
-        }
-
-        .text-bold {
-            font-weight: bold;
-        }
-
-        @media print {
-            .container {
-                border: none;
-            }
-
-            * {
-                font-size: 12px;
-                line-height: 20px;
-            }
-
-            .no-print {
-                display: none !important;
-            }
-        }
+    }
     </style>
 </head>
 
@@ -112,7 +112,7 @@
                 <img src="{{asset('images/android-chrome-512x512.png')}}" height="70" width="70" style="margin:10px 0;">
             </div>
         </div>
-        <h1 class="centered font-black text-3xl">Invoice: {{$invoiceNumber}}</h1>
+        <h1 class="centered font-black text-3xl">Invoice: {{$payment->invoice_no}}</h1>
         <?php
         $date = date('Y-m-d H:i:s');
         $name = $user->fname . " " . $user->lname;
@@ -156,12 +156,12 @@
 
 
     <script type="text/javascript">
-        localStorage.clear();
+    localStorage.clear();
 
-        function auto_print() {
-            window.print()
-        }
-        setTimeout(auto_print, 1000);
+    function auto_print() {
+        window.print()
+    }
+    setTimeout(auto_print, 1000);
     </script>
 </body>
 

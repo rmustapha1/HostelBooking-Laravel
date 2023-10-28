@@ -8,19 +8,19 @@ function numberToWords($number)
     $thousands = array('', 'thousand', 'million', 'billion', 'trillion');
 
     $number = number_format($number, 2, '.', ',');
-    list($dollars, $cents) = explode('.', $number);
+    list($cedis, $peswas) = explode('.', $number);
 
-    $dollars = explode(',', $dollars);
-    $dollarsCount = count($dollars);
+    $cedis = explode(',', $cedis);
+    $cedisCount = count($cedis);
 
-    if ($dollarsCount === 1 && (int) $dollars[0] === 0) {
-        return 'zero dollars';
+    if ($cedisCount === 1 && (int) $cedis[0] === 0) {
+        return 'zero cedis';
     }
 
     $words = [];
 
-    for ($i = 0; $i < $dollarsCount; $i++) {
-        $part = (int) $dollars[$i];
+    for ($i = 0; $i < $cedisCount; $i++) {
+        $part = (int) $cedis[$i];
         $digits = str_split(strrev($part));
 
         if ($part > 0) {
@@ -41,19 +41,19 @@ function numberToWords($number)
                 $words[] = $units[$digits[2]] . ' hundred';
             }
 
-            if ($i < $dollarsCount - 1) {
+            if ($i < $cedisCount - 1) {
                 $words[] = $thousands[$i];
             }
         }
     }
 
-    $dollarsStr = implode(' ', $words);
+    $cedisStr = implode(' ', $words);
 
-    if ((int) $cents === 0) {
-        return $dollarsStr . ' dollars';
+    if ((int) $peswas === 0) {
+        return $cedisStr . ' cedis';
     }
 
-    $centsStr = $units[(int) $cents] . ' cents';
+    $peswasStr = $units[(int) $peswas] . ' peswas';
 
-    return $dollarsStr . ' dollars and ' . $centsStr;
+    return $cedisStr . ' cedis and ' . $peswasStr;
 }

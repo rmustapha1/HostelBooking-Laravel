@@ -8,7 +8,7 @@ use App\Http\Controllers\HostelController;
 use App\Http\Controllers\SchoolController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\PaymentController;
-use App\Models\Payment;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,9 +37,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/users', 'UserController@index');
 Route::get('/users/create', 'UserController@create');
 Route::post('/users', 'UserController@store');
-Route::get('/users/{user}', 'UserController@show');
+Route::get('/users/{user_id}', [UserController::class, 'show'])->name('user.show');
 Route::get('/users/{user}/edit', 'UserController@edit');
-Route::put('/users/{user}', 'UserController@update');
+Route::put('/users/{user_id}', [UserController::class, 'update'])->name('user.update');
 Route::delete('/users/{user}', 'UserController@destroy');
 
 // Hostel Routes

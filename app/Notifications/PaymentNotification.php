@@ -19,9 +19,10 @@ class PaymentNotification extends Notification
 
         $response = $client->post('https://mnotify.com/api/smsapi', [
             'form_params' => [
-                'key' => 'YOUR_API_KEY',
+                'key' => 'bQWU97WiwiYX4awDiuESK4qzt',
                 'to' => $phone,
                 'msg' => $message,
+                'sender_id' => 'Prvt-Hostel',
             ],
         ]);
 

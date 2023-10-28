@@ -14,7 +14,7 @@ class HostelController extends Controller
     {
         $schools = School::all();
         $selectedSchool = $request->input('school');
-        $selectedPrice = $request->input('price');
+        $selectedPriceRange = $request->input('price');
 
         $hostels = Hostel::where('status', 'Active');
 
@@ -23,14 +23,11 @@ class HostelController extends Controller
             $hostels->where('school_id', $selectedSchool);
         }
 
-        if ($selectedPrice) {
-            if ($selectedPrice == 1) {
-                $hostels->where('price', '<', 50);
-            } elseif ($selectedPrice == 2) {
-                $hostels->whereBetween('price', [50, 100]);
-            } elseif ($selectedPrice == 3) {
-                $hostels->where('price', '>', 100);
-            }
+        if ($selectedPriceRange) {
+            $priceRange = explode('-', $selectedPriceRange);
+            $hostels->whereHas('rooms', function ($query) use ($priceRange) {
+                $query->where('price_per_year', '>=', $priceRange[0])->where('price_per_year', '<=', $priceRange[1]);
+            });
         }
 
         $filteredHostels = $hostels->get();
@@ -48,7 +45,7 @@ class HostelController extends Controller
             $message = 'No hostels found matching your criteria.';
         }
 
-        return view('hostels.index', compact('filteredHostels', 'schools', 'selectedSchool', 'selectedPrice', 'message', 'ratings'));
+        return view('hostels.index', compact('filteredHostels', 'schools', 'selectedSchool', 'selectedPriceRange', 'message', 'ratings'));
     }
 
     // Logic for displaying a hostel creation form

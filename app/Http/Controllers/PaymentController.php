@@ -12,6 +12,7 @@ use App\Models\User;
 use App\Models\Booking;
 use App\Models\Payment;
 use function numberToWords;
+use App\Notifications\PaymentNotification;
 
 
 class PaymentController extends Controller
@@ -59,12 +60,20 @@ class PaymentController extends Controller
             $payment->transaction_id = $paymentDetails['data']['reference'];
             $payment->amount = $paymentDetails['data']['amount'];
             $payment->payment_method = $channel;
+            // Generate a unique invoice number
+            $prefix = "INV-";
+            $uniqueNumber = uniqid();
+
+            $invoiceNumber = $prefix . $uniqueNumber;
+            $payment->invoice_no = $invoiceNumber;
             $payment->save();
 
             $booking = Booking::find($paymentDetails['data']['metadata']['booking_id']);
             $booking->status = 'Confirmed';
             $booking->save();
 
+            $user = User::find($paymentDetails['data']['metadata']['user_id']);
+            $user->notify(new PaymentNotification());
 
 
             return redirect()->route('booking.invoice', $booking->id)->withMessage(['msg' => 'Payment successful', 'type' => 'success']);
@@ -77,15 +86,11 @@ class PaymentController extends Controller
     public function invoice($id)
     {
         $booking = Booking::find($id);
-        $user = User::find($booking->student_id);
+        $user = User::find($booking->user_id);
         $payment = Payment::where('booking_id', $booking->id)->first();
-        // Generate a unique invoice number
-        $prefix = "INV-";
-        $uniqueNumber = uniqid();
 
-        $invoiceNumber = $prefix . $uniqueNumber;
         $amountInWords = ucwords(numberToWords($payment->amount));
 
-        return view('booking.invoice', compact('booking', 'user', 'payment', 'invoiceNumber', 'amountInWords'));
+        return view('booking.invoice', compact('booking', 'user', 'payment', 'amountInWords'));
     }
 }
