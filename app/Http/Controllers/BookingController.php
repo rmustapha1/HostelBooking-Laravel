@@ -70,9 +70,14 @@ class BookingController extends Controller
             // Deduct from available_slots
             $room->decrement('available_slots');
 
+            $hostel = Hostel::find($room->hostel_id);
+            $hostelId = $hostel->id; // Replace with the actual hostel ID
+            $averageRating = Review::where('hostel_id', $hostelId)->avg('rating');
+            $normalizedRating = ($averageRating / 10) * 5;
+
             // Pass user and booking details to payment view
             $message = "Your booking has been created successfully proceed to make payment";
-            return view('booking.step2', compact('user', 'booking', 'room'))->with('success', $message);
+            return view('booking.step2', compact('user', 'booking', 'hostel', 'room', 'normalizedRating'))->with('success', $message);
         } else {
             $message = "The room is not available";
             return redirect()->route('hostels.show', ['hostel' => $request->hostel_id])->with('error', $message);
