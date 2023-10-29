@@ -145,11 +145,11 @@
                 </tr>
             </tbody>
             <tfoot>
-                <!-- <tr>
+                <tr>
                     <th class="centered" colspan="12">In Words: <span>GH&#8373;</span>
                         <span>{{str_replace("-"," ",$amountInWords)}}</span>
                     </th>
-                </tr> -->
+                </tr>
             </tfoot>
         </table>
     </div>
