@@ -1,5 +1,3 @@
-
-
 <?php $__env->startSection('content'); ?>
 <div id="booking" class="container px-2 py-8 mt-20 items-center justify-center">
     <!-- Steps UI -->
@@ -99,6 +97,7 @@
                             </div>
                             <input type="hidden" name="room_id" value="<?php echo e($room->id); ?>">
                             <input type="hidden" name="hostel_id" value="<?php echo e($hostel->id); ?>">
+                            <input type="hidden" name="user_id" value="<?php echo e($user->id); ?>">
                         </div>
                     </div>
 
@@ -110,7 +109,7 @@
                             <!-- Telephone number -->
                             <div class="col-md-6 mb-3">
                                 <label for="phone" class="text-gray-600 font-medium">Telephone number</label>
-                                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" class="w-full bg-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" value="<?php echo e($user->phone); ?>" class="w-full bg-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                             </div>
                             <!-- Email preferences -->
                             <div class="col-md-6 mb-3">

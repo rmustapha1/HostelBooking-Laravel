@@ -37,15 +37,13 @@ class BookingController extends Controller
     public function saveBooking(Request $request)
     {
         // First Logic: Update user details if changed
-        $user = auth()->user(); // Assuming you are using authentication
-        $user_id = User::find($user->id);
-        $user_id->fname = $request->fname;
-        $user_id->lname = $request->lname;
-        $user_id->phone = $request->phone;
-        $user_id->save();
+        // Assuming you are using authentication
+        $user = User::find($request->user_id);
 
-        // Second Logic: Check if the user has an existing booking with "Reserved" or "Completed" status
-        $existingBooking = Booking::where('user_id', $user_id)
+
+
+        // Second Logic: Check if the user has an existing booking with "Reserved" or "Confirmed" status
+        $existingBooking = Booking::where('user_id', $request->user_id)
             ->whereIn('status', ['Reserved', 'Confirmed'])
             ->first();
 

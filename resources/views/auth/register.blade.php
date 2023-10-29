@@ -47,17 +47,13 @@
                             <form method="POST" action="{{ route('register') }}">
                                 @csrf
                                 <div class="text-left mb-2 mt-3 pl-3">
-                                    <span for="fname"
-                                        class="text-base leading-3 text-left text-gray-500">{{ __('Firstname') }}</span>
+                                    <span for="fname" class="text-base leading-3 text-left text-gray-500">{{ __('Firstname') }}</span>
                                 </div>
                                 <div class="relative rounded-md col-md-12 items-center">
                                     <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
                                         <i class="bi bi-person-fill text-gray-300" viewBox="0 0 16 16"></i>
                                     </div>
-                                    <input id="fname" type="text"
-                                        class="form-control @error('fname') is-invalid @enderror rounded-md border-1 py-4 pl-12 text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                                        name="fname" placeholder="Enter your firstname" value="{{ old('fname') }}"
-                                        required autocomplete="fname" autofocus>
+                                    <input id="fname" type="text" class="form-control @error('fname') is-invalid @enderror rounded-md border-1 py-4 pl-12 text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" name="fname" placeholder="Enter your firstname" value="{{ old('fname') }}" required autocomplete="fname" autofocus>
 
                                     @error('fname')
                                     <span class="invalid-feedback" role="alert">
@@ -66,17 +62,13 @@
                                     @enderror
                                 </div>
                                 <div class="text-left mb-2 mt-3 pl-3">
-                                    <span for="lname"
-                                        class="text-base leading-3 text-left text-gray-500">{{ __('Lastname') }}</span>
+                                    <span for="lname" class="text-base leading-3 text-left text-gray-500">{{ __('Lastname') }}</span>
                                 </div>
                                 <div class="relative rounded-md col-md-12 items-center">
                                     <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
                                         <i class="bi bi-person-fill text-gray-300" viewBox="0 0 16 16"></i>
                                     </div>
-                                    <input id="lname" type="text"
-                                        class="form-control @error('lname') is-invalid @enderror rounded-md border-1 py-4 pl-12 text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                                        name="lname" placeholder="Enter your lastname" value="{{ old('lname') }}"
-                                        required autocomplete="lname" autofocus>
+                                    <input id="lname" type="text" class="form-control @error('lname') is-invalid @enderror rounded-md border-1 py-4 pl-12 text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" name="lname" placeholder="Enter your lastname" value="{{ old('lname') }}" required autocomplete="lname" autofocus>
 
                                     @error('lname')
                                     <span class="invalid-feedback" role="alert">
@@ -86,78 +78,80 @@
                                 </div>
 
                                 <div class="text-left mb-2 mt-3 pl-3">
-                                    <span for="email"
-                                        class="text-base leading-3 text-left text-gray-500">{{ __('Email') }}</span>
+                                    <span for="email" class="text-base leading-3 text-left text-gray-500">{{ __('Email') }}</span>
                                 </div>
+
                                 <div class="relative rounded-md col-md-12 items-center">
                                     <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
                                         <i class="bi bi-envelope-fill text-gray-300" viewBox="0 0 16 16"></i>
 
                                     </div>
-                                    <input id="email" type="email"
-                                        class="form-control @error('email') is-invalid @enderror rounded-md border-1 py-4 pl-12 text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                                        name="email" placeholder="example@mail.com" value="{{ old('email') }}" required
-                                        autocomplete="email" autofocus>
+                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror rounded-md border-1 py-4 pl-12 text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" name="email" placeholder="example@mail.com" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                     @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                     @enderror
-                                    <input id="role" type="hidden" name="role" value="Student">
-                                </div>
-
-                                <div class="text-left mb-2 mt-3 pl-3">
-                                    <span for="password"
-                                        class="text-base leading-3 text-left text-gray-500">{{ __('Password') }}</span>
-                                </div>
-                                <div class="relative rounded-md col-md-12">
-                                    <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
-                                        <i class="bi bi-lock-fill text-gray-300" viewBox="0 0 16 16"></i>
+                                    <div class="text-left mb-2 mt-3 pl-3">
+                                        <span for="phone" class="text-base leading-3 text-left text-gray-500">{{ __('Telephone number') }}</span>
                                     </div>
-                                    <input id="password" type="password"
-                                        class="form-control @error('password') is-invalid @enderror rounded-md border-1 py-4 pl-12 text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                                        name="password" required placeholder="**********" autocomplete="new-password">
 
-                                    @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
+                                    <div class="relative rounded-md col-md-12 items-center">
+                                        <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
+                                            <i class="bi bi-phone text-gray-300" viewBox="0 0 16 16"></i>
 
+                                        </div>
+                                        <input id="phone" type="tel" class="form-control @error('phone') is-invalid @enderror rounded-md border-1 py-4 pl-12 text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" name="phone" placeholder="0000000000" value="{{ old('phone') }}" required autocomplete="phone" autofocus>
 
-                                <div class="text-left mb-2 mt-3 pl-3">
-                                    <span for="password"
-                                        class="text-base leading-3 text-left text-gray-500">{{ __('Confirm Password') }}</span>
-                                </div>
-
-                                <div class="relative rounded-md col-md-12 mb-3">
-                                    <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
-                                        <i class="bi bi-lock-fill text-gray-300" viewBox="0 0 16 16"></i>
+                                        @error('phone')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                        <input id="role" type="hidden" name="role" value="Student">
                                     </div>
-                                    <input id="password-confirm" type="password"
-                                        class="form-control rounded-md border-1 py-4 pl-12 text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                                        name="password_confirmation" required placeholder="**********"
-                                        autocomplete="new-password">
-                                </div>
+                                    <div class="text-left mb-2 mt-3 pl-3">
+                                        <span for="password" class="text-base leading-3 text-left text-gray-500">{{ __('Password') }}</span>
+                                    </div>
+                                    <div class="relative rounded-md col-md-12">
+                                        <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
+                                            <i class="bi bi-lock-fill text-gray-300" viewBox="0 0 16 16"></i>
+                                        </div>
+                                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror rounded-md border-1 py-4 pl-12 text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" name="password" required placeholder="**********" autocomplete="new-password">
 
-                                <div class="col-md-12 mb-3">
-                                    <button type="submit"
-                                        class="btn bg-blue-400 py-2 text-center mb-5 text-white w-full hover:bg-blue-600">
-                                        {{ __('Register') }}
-                                    </button>
-                                </div>
+                                        @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+
+
+                                    <div class="text-left mb-2 mt-3 pl-3">
+                                        <span for="password" class="text-base leading-3 text-left text-gray-500">{{ __('Confirm Password') }}</span>
+                                    </div>
+
+                                    <div class="relative rounded-md col-md-12 mb-3">
+                                        <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
+                                            <i class="bi bi-lock-fill text-gray-300" viewBox="0 0 16 16"></i>
+                                        </div>
+                                        <input id="password-confirm" type="password" class="form-control rounded-md border-1 py-4 pl-12 text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" name="password_confirmation" required placeholder="**********" autocomplete="new-password">
+                                    </div>
+
+                                    <div class="col-md-12 mb-3">
+                                        <button type="submit" class="btn bg-blue-400 py-2 text-center mb-5 text-white w-full hover:bg-blue-600">
+                                            {{ __('Register') }}
+                                        </button>
+                                    </div>
                             </form>
                             <div class="line items-start justify-center mx-auto mb-3">
                             </div>
 
                             <div class="flex space-x-2 justify-center items-center mx-3 pb-3 text-gray-400 text-sm">
-                                <p>Already have an account? <a href="{{ route('login') }}"
-                                        class="btn-link text-center text-blue-400 hover:text-blue-600">Login</a></p>
+                                <p>Already have an account? <a href="{{ route('login') }}" class="btn-link text-center text-blue-400 hover:text-blue-600">Login</a></p>
                                 <span>OR</span>
-                                <span>Go back <a href="{{ route('home') }}"
-                                        class="btn-link text-center text-blue-400 hover:text-blue-600">Home</a></span>
+                                <span>Go back <a href="{{ route('home') }}" class="btn-link text-center text-blue-400 hover:text-blue-600">Home</a></span>
                             </div>
                         </div>
                     </div>

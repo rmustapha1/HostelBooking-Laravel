@@ -98,6 +98,7 @@
                             </div>
                             <input type="hidden" name="room_id" value="{{$room->id}}">
                             <input type="hidden" name="hostel_id" value="{{$hostel->id}}">
+                            <input type="hidden" name="user_id" value="{{$user->id}}">
                         </div>
                     </div>
 
@@ -109,7 +110,7 @@
                             <!-- Telephone number -->
                             <div class="col-md-6 mb-3">
                                 <label for="phone" class="text-gray-600 font-medium">Telephone number</label>
-                                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" class="w-full bg-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" value="{{$user->phone}}" class="w-full bg-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                             </div>
                             <!-- Email preferences -->
                             <div class="col-md-6 mb-3">

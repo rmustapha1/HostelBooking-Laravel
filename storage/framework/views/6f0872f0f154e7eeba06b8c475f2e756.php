@@ -1,5 +1,3 @@
-
-
 <?php $__env->startSection('content'); ?>
 <sction class="bg-white">
     <!-- Banner -->
