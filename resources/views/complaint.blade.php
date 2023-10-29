@@ -2,9 +2,9 @@
 
 @section('content')
 <div class="container mx-auto">
-<div class="bg-white rounded-lg shadow-sm mx-auto">
-    <div class="header mx-auto  mt-20">
-        <h1 class="text-3xl font-bold text-gray-900">Complaints Form</h1>
+<div class="bg-white rounded-lg shadow-sm mx-auto mt-20">
+    <div class="header mx-auto  mt-20 text-center">
+        <h1 class="text-3xl font-bold text-center text-gray-900">Complaints Form</h1>
     </div>
     <form method="post" action="{{route('complaint.send')}}" class="max-w-lg mx-auto mt-10">
         @csrf
