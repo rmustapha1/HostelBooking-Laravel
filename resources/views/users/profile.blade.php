@@ -157,9 +157,8 @@
                                     @endif
                                     @if ($booking->status == 'Reserved')
                                     <td>
-                                        <a href="{{ route('booking.step2', ['booking_id' => $booking->id]) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                                            Make
-                                            Payment
+                                        <a href="{{ route('booking.step2', ['bookingId' => $booking->id]) }}" class="bg-blue-500 hover:bg-blue-700 text-white p-2 rounded">
+                                            Pay
                                         </a>
                                     </td>
                                     @endif

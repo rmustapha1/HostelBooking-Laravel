@@ -41,7 +41,6 @@ class BookingController extends Controller
         $user_id = User::find($user->id);
         $user_id->fname = $request->fname;
         $user_id->lname = $request->lname;
-        $user_id->email = $request->email;
         $user_id->phone = $request->phone;
         $user_id->save();
 
@@ -91,7 +90,7 @@ class BookingController extends Controller
         $user = User::find($booking->user_id); // If you are using authentication
 
 
-        $hostelId = $hostel->id; // Replace with the actual hostel ID
+        $hostelId = $room->hostel->id; // Replace with the actual hostel ID
         $averageRating = Review::where('hostel_id', $hostelId)->avg('rating');
         $normalizedRating = ($averageRating / 10) * 5;
         if (!$booking || !$room || !$hostel) {

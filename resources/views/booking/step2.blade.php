@@ -43,7 +43,8 @@
             <div class="w-full col-lg-4 px-2">
                 <div class="bg-white rounded-lg border-gray-300 border-2 p-4 mb-2">
                     <h2 class="text-sm font-bold mb-2">{{ $room->hostel->name }}</h2>
-                    <p class="text-gray-700 text-sm mb-2"><i class="bi bi-geo-alt pr-2"></i>{{ $hostel->location }}</p>
+                    <p class="text-gray-700 text-sm mb-2"><i
+                            class="bi bi-geo-alt pr-2"></i>{{ $room->hostel->location }}</p>
                     <div class="star-rating">
                         @for ($i = 1; $i <= 5; $i++) @if ($normalizedRating>= $i)
                             <i class="bi bi-star-fill text-yellow-500"></i>
