@@ -11,6 +11,7 @@ use Unicodeveloper\Paystack\Facades\Paystack;
 use App\Models\User;
 use App\Models\Booking;
 use App\Models\Payment;
+use function numberToWords;
 use App\Notifications\PaymentNotification;
 
 
@@ -90,7 +91,8 @@ class PaymentController extends Controller
         $user = User::find($booking->user_id);
         $payment = Payment::where('booking_id', $booking->id)->first();
 
+        $amountInWords = ucwords(numberToWords($payment->amount));
 
-        return view('booking.invoice', compact('booking', 'user', 'payment'));
+        return view('booking.invoice', compact('booking', 'user', 'payment', 'amountInWords'));
     }
 }
