@@ -151,7 +151,7 @@
                                         <form action="#" method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="bg-red-500 text-white px-4 py-3 rounded-lg hover:bg-red-600">Delete</button>
+                                            <button type="submit" class="bg-red-500 text-white p-2 rounded-lg hover:bg-red-600">Delete</button>
                                         </form>
                                     </td>
                                     @endif
