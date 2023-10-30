@@ -66,7 +66,9 @@ Route::get('booking/invoice/{bookingId}', [PaymentController::class, 'invoice'])
 Route::post('/pay', [PaymentController::class, 'redirectToGateway'])->name('pay');
 Route::get('/payment/callback', [PaymentController::class, 'handleGatewayCallback']);
 
-
+// Complaint Routes
+Route::get('/complaint', 'ComplaintController@index')->name('complaint.index');
+Route::post('/complaint', 'ComplaintController@sendComplaint')->name('complaint.send');
 
 
 // Payment Routes
