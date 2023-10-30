@@ -58,6 +58,6 @@ class PaymentNotification extends Notification
         var_dump($result);
         curl_close($ch);
 
-        // return $response->getBody();
+        return $result;
     }
 }
