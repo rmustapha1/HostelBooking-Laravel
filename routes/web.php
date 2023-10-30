@@ -69,7 +69,7 @@ Route::get('/payment/callback', [PaymentController::class, 'handleGatewayCallbac
 
 // Complaint Routes
 Route::get('/complaint', [ComplaintController::class, 'index'])->name('complaint.index');
-Route::post('/complaint', [ComplaintController::class, 'send'])->name('complaint.send');
+Route::post('/complaint', [ComplaintController::class, 'sendComplaint'])->name('complaint.send');
 
 
 // Payment Routes
