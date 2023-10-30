@@ -10,7 +10,7 @@ class PaymentNotification extends Notification
     public function toMNotify($notifiable)
     {
         $message = 'Your payment has been received. Thank you!';
-        $phone = $notifiable->phone; // Replace with your notifiable model's phone field
+        $phone = $notifiable; // Replace with your notifiable model's phone field
 
         $client = new Client();
 
