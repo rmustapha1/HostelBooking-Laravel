@@ -55,25 +55,55 @@
                     <span class="text-gray-700 mb-2">{{ $rowCount }} reviews</span>
                 </div>
                 <div class="bg-white rounded-lg border-gray-300 border-2 p-4 mb-2">
-                    <h2 class="text-sm font-bold mb-2">Room Details</h2>
-                    <p class="text-gray-700 font-semibold mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Sed euismod,
-                        diam
-                        eget varius ultricies, elit elit bibendum sapien, vel bibendum sapien elit euismod elit.</p>
+                    <h2 class="text-sm font-bold mb-2">Your Booking Details</h2>
+                    <div class="row items-center mb-3">
+
+                        @php
+                        $checkInDate = date('Y-m-d');
+                        $checkOutDate = date('Y-m-d', strtotime('+1 year'));
+                        @endphp
+                        <div class="col-6">
+                            <p class="text-sm text-gray-400">Check-In</p>
+                            <span class="font-bold text-gray-950 text-lg pr-5 border-r-2 border-gray-300">{{$checkInDate}}</span>
+                        </div>
+                        <div class="col-6">
+                            <p class="text-sm text-gray-400">Check-Out</p>
+                            <span class="font-bold text-gray-950 text-lg">{{$checkOutDate}}</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-800 text-left">Duration:</p>
+                    <span class="font-bold text-gray-950 text-sm text-left">1 year</span>
                 </div>
-                <div class="bg-white rounded-lg border-gray-300 border-2 p-4 mb-2">
-                    <h2 class="text-sm font-bold mb-2">Booking Details</h2>
-                    <p class="text-gray-700 mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod,
-                        diam
-                        eget varius ultricies, elit elit bibendum sapien, vel bibendum sapien elit euismod elit.</p>
+                <div class="bg-white rounded-lg border-gray-300 p-4 border-2 mb-2">
+                    <h2 class="text-sm font-bold mb-2">Your price summary</h2>
+                    <div class="bg-blue-100 row rounded-md shadow-sm p-4 mb-2">
+                        <div class="col font-extrabold text-left text-3xl">
+                            Total
+                        </div>
+                        <div class="col font-extrabold text-left text-3xl mb-2">
+                            GH&#8373;{{ $room->price_per_year }}
+                        </div>
+                    </div>
+                    <div class="row items-center">
+                        <div class="col-6 ">
+                            <p class="text-sm text-gray-400">Room number</p>
+                            <p class="font-bold text-gray-950 text-lg">{{$room->room_no}}</p>
+                        </div>
+                        <div class="col-6">
+                            <p class="text-sm text-gray-400">Room type</p>
+                            <p class="font-bold text-gray-950 text-lg">{{$room->room_type}}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
+
             <div class="w-full col-lg-8 px-2">
                 <!-- Sign in to book your details or register to manage your booking on the go! -->
                 <form id="booking-form" method="post" action="{{route('booking.saveBooking')}}">
                     @csrf
                     <div class="border-gray-300 border-2 rounded-sm p-4 mb-3">
-                        <h2 class="text-2xl font-medium text-gray-800">Continue to book with your details.</h2>
+                        <h2 class="text-2xl font-medium text-gray-800">Continue to book with your details.
+                        </h2>
                         <div class="mt-4 row">
 
                             <!-- First name -->
@@ -93,7 +123,8 @@
                             </div>
                             <!-- Country/region -->
                             <div class="col-md-6 mb-3">
-                                <label for="school" class="text-gray-600 font-medium">Your school/campus</label>
+                                <label for="school" class="text-gray-600 font-medium">Your
+                                    school/campus</label>
                                 <input type="text" id="school" name="school" placeholder="Enter your school name" value="{{$hostel->school->name}}" class="w-full bg-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                             </div>
                             <input type="hidden" name="room_id" value="{{$room->id}}">
@@ -109,7 +140,8 @@
 
                             <!-- Telephone number -->
                             <div class="col-md-6 mb-3">
-                                <label for="phone" class="text-gray-600 font-medium">Telephone number</label>
+                                <label for="phone" class="text-gray-600 font-medium">Telephone
+                                    number</label>
                                 <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" value="{{$user->phone}}" class="w-full bg-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                             </div>
                             <!-- Email preferences -->
@@ -133,12 +165,12 @@
                             <!-- Check-In-Date -->
                             <div class="col-md-6 mb-3">
                                 <label for="check_in_date" class="text-gray-600 font-medium">Check-In-Date</label>
-                                <input type="date" id="check_in_date" name="check_in_date" placeholder="Enter your check-in date" class="w-full bg-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                                <input type="date" id="check_in_date" name="check_in_date" placeholder="Enter your check-in date" class="w-full bg-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" value="{{$checkInDate}}" required disabled>
                             </div>
                             <!-- Check-Out-Date -->
                             <div class="col-md-6 mb-3">
                                 <label for="check_out_date" class="text-gray-600 font-medium">Check-Out-Date</label>
-                                <input type="date" id="check_out_date" name="check_out_date" placeholder="Enter your check-out date" class="w-full bg-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                                <input type="date" id="check_out_date" name="check_out_date" value="{{$checkOutDate}}" placeholder="Enter your check-out date" class="w-full bg-gray-200 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required disabled>
                             </div>
 
                         </div>
