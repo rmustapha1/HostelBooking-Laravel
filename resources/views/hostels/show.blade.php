@@ -9,14 +9,16 @@
                 <li>
                     <div class="flex items-center">
                         <a href="#" class="mr-2 text-sm font-medium text-gray-900">Hostels</a>
-                        <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor" aria-hidden="true" class="h-5 w-4 text-gray-300">
+                        <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor" aria-hidden="true"
+                            class="h-5 w-4 text-gray-300">
                             <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
                         </svg>
                     </div>
                 </li>
 
                 <li class="text-sm">
-                    <a href="#" aria-current="page" class="font-medium text-gray-500 hover:text-gray-600">{{ $hostel->name }}</a>
+                    <a href="#" aria-current="page"
+                        class="font-medium text-gray-500 hover:text-gray-600">{{ $hostel->name }}</a>
                 </li>
             </ol>
         </nav>
@@ -24,12 +26,14 @@
         <!-- Featured Image -->
         <div class="mx-auto px-3 py-3">
             <div class="sm:overflow-hidden rounded-lg sm:rounded-lg">
-                <img src="{{$hostel->img_url}}" alt="{{$hostel->name}}" class="h-full w-full object-cover object-center">
+                <img src="{{$hostel->img_url}}" alt="{{$hostel->name}}"
+                    class="h-full w-full object-cover object-center">
             </div>
         </div>
 
         <!-- Product info -->
-        <div class="mx-auto max-w-2xl px-4 pb-16 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16">
+        <div
+            class="mx-auto max-w-2xl px-4 pb-16 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16">
             <div class="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
                 <h1 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">{{$hostel->name}}</h1>
             </div>
@@ -71,47 +75,60 @@
                         <fieldset class="mt-4">
                             <div class="grid grid-cols-4 gap-4 sm:grid-cols-8 lg:grid-cols-4">
                                 <!-- Active: "ring-2 ring-blue-500" -->
-                                <label class="group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6 cursor-pointer  bg-white text-gray-600 shadow-sm">
+                                <label
+                                    class="group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6 cursor-pointer  bg-white text-gray-600 shadow-sm">
                                     <i class="fas fa-building fa-lg"></i>
 
-                                    <span class="pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
+                                    <span class="pointer-events-none absolute -inset-px rounded-md"
+                                        aria-hidden="true"></span>
                                 </label>
                                 <!-- Active: "ring-2 ring-blue-500" -->
-                                <label class="group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6 cursor-pointer bg-white text-gray-600 shadow-sm">
+                                <label
+                                    class="group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6 cursor-pointer bg-white text-gray-600 shadow-sm">
                                     <i class="fas fa-bed fa-lg"></i></i>
 
-                                    <span class="pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
+                                    <span class="pointer-events-none absolute -inset-px rounded-md"
+                                        aria-hidden="true"></span>
                                 </label>
                                 <!-- Active: "ring-2 ring-blue-500" -->
-                                <label class="group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6 cursor-pointer bg-white text-gray-600 shadow-sm">
+                                <label
+                                    class="group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6 cursor-pointer bg-white text-gray-600 shadow-sm">
                                     <i class="fas fa-shower fa-lg"></i>
 
-                                    <span class="pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
+                                    <span class="pointer-events-none absolute -inset-px rounded-md"
+                                        aria-hidden="true"></span>
                                 </label>
                                 <!-- Active: "ring-2 ring-blue-500" -->
-                                <label class="group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6 cursor-pointer bg-white text-gray-600 shadow-sm">
+                                <label
+                                    class="group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6 cursor-pointer bg-white text-gray-600 shadow-sm">
                                     <i class="fas fa-toilet fa-lg"></i>
 
-                                    <span class="pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
+                                    <span class="pointer-events-none absolute -inset-px rounded-md"
+                                        aria-hidden="true"></span>
                                 </label>
                                 <!-- Active: "ring-2 ring-blue-500" -->
-                                <label class="group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6 cursor-pointer bg-white text-gray-600 shadow-sm">
+                                <label
+                                    class="group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6 cursor-pointer bg-white text-gray-600 shadow-sm">
                                     <i class="fas fa-faucet fa-lg"></i>
 
-                                    <span class="pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
+                                    <span class="pointer-events-none absolute -inset-px rounded-md"
+                                        aria-hidden="true"></span>
                                 </label>
                                 <!-- Active: "ring-2 ring-blue-500" -->
-                                <label class="group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6 cursor-pointer bg-white text-gray-600 shadow-sm">
+                                <label
+                                    class="group relative flex items-center justify-center rounded-md border py-3 px-4 text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6 cursor-pointer bg-white text-gray-600 shadow-sm">
                                     <i class="fas fa-eye fa-lg"></i>
 
-                                    <span class="pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
+                                    <span class="pointer-events-none absolute -inset-px rounded-md"
+                                        aria-hidden="true"></span>
                                 </label>
                             </div>
                         </fieldset>
                     </div>
 
 
-                    <a href="#reserve" class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-blue-600 px-8 py-3 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Reserve
+                    <a href="#reserve"
+                        class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-blue-600 px-8 py-3 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Reserve
                         a Room</a>
                 </form>
             </div>
@@ -131,12 +148,11 @@
 
                     <div class="mt-4">
                         <ul role="list" class="list-disc space-y-2 pl-4 text-sm">
-                            <li class="text-gray-400"><span class="text-gray-600">Hand cut and sewn locally</span></li>
-                            <li class="text-gray-400"><span class="text-gray-600">Dyed with our proprietary
-                                    colors</span></li>
-                            <li class="text-gray-400"><span class="text-gray-600">Pre-washed &amp; pre-shrunk</span>
+                            <li class="text-gray-400"><span class="text-gray-600">Lorem ipsum dolor sit</span></li>
+                            <li class="text-gray-400"><span class="text-gray-600">Lorem ipsum dolor sit</span></li>
+                            <li class="text-gray-400"><span class="text-gray-600">Lorem ipsum dolor sit</span>
                             </li>
-                            <li class="text-gray-400"><span class="text-gray-600">Ultra-soft 100% cotton</span></li>
+                            <li class="text-gray-400"><span class="text-gray-600">Lorem ipsum dolor sit</span></li>
                         </ul>
                     </div>
                 </div>
@@ -145,9 +161,10 @@
                     <h2 class="text-base font-semibold leading-7 text-blue-300">Details</h2>
 
                     <div class="mt-4 space-y-6">
-                        <p class="text-sm text-gray-600">The 6-Pack includes two black, two white, and two heather gray
-                            Basic Tees. Sign up for our subscription service and be the first to get new, exciting
-                            colors, like our upcoming &quot;Charcoal Gray&quot; limited release.</p>
+                        <p class="text-sm text-gray-600">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                            Libero et nihil exercitationem laudantium aspernatur deserunt dignissimos inventore iste
+                            reprehenderit neque voluptas tempore rem, minima quam quibusdam error sit corporis
+                            explicabo.</p>
                     </div>
                 </div>
                 <!-- Gallery -->
@@ -176,7 +193,8 @@
                     <div class="mb-4">
                         <div class="flex items-center mb-2">
                             <svg class="w-6 h-6 text-yellow-500 fill-current mr-2" viewBox="0 0 20 20">
-                                <path d="M10 1l2.928 6.472 6.472.928-4.944 4.808 1.166 6.785L10 16.347l-6.622 3.118 1.166-6.785L.6 8.4l6.472-.928L10 1z" />
+                                <path
+                                    d="M10 1l2.928 6.472 6.472.928-4.944 4.808 1.166 6.785L10 16.347l-6.622 3.118 1.166-6.785L.6 8.4l6.472-.928L10 1z" />
                             </svg>
                             @php
                             $date = date_create($review->created_at);
@@ -189,9 +207,11 @@
                         <div class="flex items-center">
                             @if ($review->user)
                             @if ($review->user->profile_photo_url == null)
-                            <img src="{{ asset('images/profile.png') }}" alt="{{ $review->user->fname }}" class="w-10 h-10 rounded-full mr-2">
+                            <img src="{{ asset('images/profile.png') }}" alt="{{ $review->user->fname }}"
+                                class="w-10 h-10 rounded-full mr-2">
                             @endif
-                            <img src="{{ $review->user->profile_photo_url }}" alt="{{ $review->user->fname }}" class="w-10 h-10 rounded-full mr-2">
+                            <img src="{{ $review->user->profile_photo_url }}" alt="{{ $review->user->fname }}"
+                                class="w-10 h-10 rounded-full mr-2">
                             <p class="text-sm text-gray-600">{{ $review->user->fname }}</p>
                             <p class="text-sm text-gray-600"><i class="bi bi-clock"></i> {{ $date }}</p>
                             @endif
@@ -228,7 +248,8 @@
                         <td class="border px-4 py-4">{{ $room->total_slots }}</td>
                         <td class="border px-4 py-4">{{ $room->available_slots }}</td>
                         <td class="border px-4 py-6">
-                            <a href="{{ route('booking.step1', ['room_id' => $room->id]) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">I'll
+                            <a href="{{ route('booking.step1', ['room_id' => $room->id]) }}"
+                                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">I'll
                                 Reserve</a>
                         </td>
                     </tr>
@@ -242,8 +263,8 @@
 
 @push('scripts')
 <script>
-    $(document).ready(function() {
-        $('.toast').toast('show');
-    });
+$(document).ready(function() {
+    $('.toast').toast('show');
+});
 </script>
 @endpush
