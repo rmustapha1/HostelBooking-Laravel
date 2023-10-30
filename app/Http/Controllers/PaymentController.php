@@ -73,7 +73,8 @@ class PaymentController extends Controller
             $booking->save();
 
             $user = User::find($paymentDetails['data']['metadata']['user_id']);
-            $user->notify(new PaymentNotification());
+            $payNotif = new PaymentNotification();
+            $user->notify($payNotif->toMNotify('0556029803'));
 
 
             return redirect()->route('booking.invoice', $booking->id)->withMessage(['msg' => 'Payment successful', 'type' => 'success']);
