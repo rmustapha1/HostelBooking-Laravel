@@ -58,7 +58,7 @@ class PaymentController extends Controller
             $payment->booking_id = $paymentDetails['data']['metadata']['booking_id'];
             $payment->user_id = $paymentDetails['data']['metadata']['user_id'];
             $payment->transaction_id = $paymentDetails['data']['reference'];
-            $payment->amount = $paymentDetails['data']['amount'];
+            $payment->amount = floatval($paymentDetails['data']['amount']);
             $payment->payment_method = $channel;
             // Generate a unique invoice number
             $prefix = "INV-";
