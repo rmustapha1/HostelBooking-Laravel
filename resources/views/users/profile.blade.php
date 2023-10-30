@@ -34,6 +34,10 @@
                         <div>
                             <a type="button" class="btn-link text-gray-500 hover:text-blue-500" data-toggle="modal" data-target="#editProfileModal">Edit Profile</a>
                         </div>
+                        <div>
+                            <a href="{{route('complaint.index')}}" class="btn-link text-gray-500 hover:text-blue-500">Send
+                                Complaint</a>
+                        </div>
 
                     </div>
                 </div>

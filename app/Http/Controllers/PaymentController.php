@@ -58,7 +58,7 @@ class PaymentController extends Controller
             $payment->booking_id = $paymentDetails['data']['metadata']['booking_id'];
             $payment->user_id = $paymentDetails['data']['metadata']['user_id'];
             $payment->transaction_id = $paymentDetails['data']['reference'];
-            $payment->amount = floatval($paymentDetails['data']['amount']);
+            $payment->amount = floatval($paymentDetails['data']['amount']) / 10;
             $payment->payment_method = $channel;
             // Generate a unique invoice number
             $prefix = "INV-";
@@ -74,9 +74,8 @@ class PaymentController extends Controller
 
             $user = User::find($paymentDetails['data']['metadata']['user_id']);
             $payNotif = new PaymentNotification();
-            // $user->notify(
-            //    );
-            $payNotif->toMNotify($user->phone);
+            $message = "Your payment of " . $payment->amount . " has been received. Your invoice number is " . $payment->invoice_no;
+            $payNotif->toMNotify($user->phone, $message);
 
 
             return redirect()->route('booking.invoice', $booking->id)->withMessage(['msg' => 'Payment successful', 'type' => 'success']);

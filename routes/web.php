@@ -9,6 +9,7 @@ use App\Http\Controllers\SchoolController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ComplaintController;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,8 +68,8 @@ Route::post('/pay', [PaymentController::class, 'redirectToGateway'])->name('pay'
 Route::get('/payment/callback', [PaymentController::class, 'handleGatewayCallback']);
 
 // Complaint Routes
-Route::get('/complaint', 'ComplaintController@index')->name('complaint.index');
-Route::post('/complaint', 'ComplaintController@sendComplaint')->name('complaint.send');
+Route::get('/complaint', [ComplaintController::class, 'index'])->name('complaint.index');
+Route::post('/complaint', [ComplaintController::class, 'send'])->name('complaint.send');
 
 
 // Payment Routes

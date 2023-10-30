@@ -7,34 +7,14 @@ use GuzzleHttp\Client;
 
 class PaymentNotification extends Notification
 {
-    public function toMNotify($notifiable)
+    public function toMNotify($notifiable, $message)
     {
-        $message = 'Your payment has been received. Thank you!';
+        // $message = 'Your payment has been received. Thank you!';
         $phone = $notifiable; // Replace with your notifiable model's phone field
 
-        $client = new Client();
 
-        // $response = $client->post('https://mnotify.com/api/smsapi/', [
-        //     'form_params' => [
-        //         'key' => 'bQWU97WiwiYX4awDiuESK4qzt',
-        //         'to' => $phone,
-        //         'msg' => $message,
-        //         'sender_id' => 'Prvt-Hostel',
-        //     ],
-        // ]);
-        // $response = $client->post('https://api.mnotify.com/api/sms/quick', [
-        //     'form_params' => [
-        //         'key' => 'bQWU97WiwiYX4awDiuESK4qzt',
-        //         'sender' => 'Prvt-Hostel',
-        //         'recipient' => $phone,
-        //         'message' => $message,
-        //         'is_schedule' => 'false',
-        //         'schedule_date' => ''
-        //     ],
-        // ]);
 
         $endPoint = 'https://api.mnotify.com/api/sms/quick';
-        // $apiKey = '4I7V9voJOgR2sWY7wg9gkjBtZ';
         $apiKey = 'WGq00aWm6vwnJkBoKixSNnjbr';
         $url = $endPoint . '?key=' . $apiKey;
         $data = [
