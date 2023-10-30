@@ -39,7 +39,7 @@ class PaymentNotification extends Notification
         $url = $endPoint . '?key=' . $apiKey;
         $data = [
             'sender' => 'Prvt-Hostel',
-            'recipient' => $phone,
+            'recipient' => [$phone],
             'message' => $message,
             'is_schedule' => 'false',
             'schedule_date' => ''
