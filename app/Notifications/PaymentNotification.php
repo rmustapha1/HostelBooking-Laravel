@@ -58,6 +58,6 @@ class PaymentNotification extends Notification
         var_dump($result);
         curl_close($ch);
 
-        return $result;
+        return json_encode(['message' => 'successfuly sent!']);
     }
 }
