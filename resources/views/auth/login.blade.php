@@ -1,144 +1,148 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Private Hostels Booking</title>
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <!-- Include Bootstrap CSS from CDN -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Private Hostels Booking Dashboard</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="{{asset('vendors/mdi/css/materialdesignicons.min.css')}}">
+    <link rel="stylesheet" href="{{asset('vendors/base/vendor.bundle.base.css')}}">
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <link rel="stylesheet" href="{{asset('vendors/datatables.net-bs4/dataTables.bootstrap4.css')}}">
+    <!-- End plugin css for this page -->
     <!-- Include Tailwind CSS from CDN -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <!-- Include Bootstrap JavaScript and jQuery from CDN -->
-
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ asset('images/site.webmanifest') }}">
+    <!-- inject:css -->
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="{{asset('images/favicon.png')}}" />
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400&display=swap" rel="stylesheet">
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    <!-- Other CSS and JavaScript imports as needed -->
-
 </head>
 
-<body id="login">
-    <div class="content-wrap">
-        <div class="container mx-auto mt-8">
-            <div class="row justify-content-center">
-                <div class="col-md-7 lg:text-left lg:py-5 lg:pl-20 hidden sm:block md:block">
-                    <h2 class="text-base font-semibold leading-7 text-blue-300">Welcome To PrivateHostels</h2>
-                    <div class="line1 items-start justify-start my-2 text-white">
-                    </div>
-                    <h1 class="text-white font-bold lg:text-5xl sm:text-4xl mb-5">The easy way to find accommodation.
-                    </h1>
-                </div>
-                <div class="col-md-5">
-                    <div class="bg-white shadow-sm rounded-xl border-t-blue-600 border-t-8">
-                        <h1 class="text-base text-center font-semibold leading-7 text-blue-500 mt-5">{{ __('Login') }}
-                        </h1>
-                        <div class="line2 items-start justify-center mx-auto my-2">
-                        </div>
-                        <div class="form">
-                            <form method="POST" action="{{ route('login') }}">
+<body>
+    <style>
+    * {
+        font-family: 'Space Grotesk', sans-serif;
+    }
+    </style>
+    <div class="container-scroller">
+        <div class="container-fluid page-body-wrapper full-page-wrapper">
+            <div class="content-wrapper d-flex align-items-stretch auth auth-img-bg">
+                <div class="row flex-grow">
+                    <div class="col-lg-6 d-flex align-items-center justify-content-center">
+                        <div class="auth-form-transparent text-left p-3">
+                            <div class="brand-logo logo">
+                                <img class="h-10 w-auto" src="{{ asset('images/logo.png') }}" alt="logo">
+                                <p>Private<span>Hostels</span></p>
+                            </div>
+                            <h4>Welcome back!</h4>
+                            <h6 class="font-weight-light">Happy to see you again!</h6>
+                            <form class="pt-3" method="POST" action="{{ route('login') }}">
                                 @csrf
+                                <div class="form-group">
+                                    <label for="exampleInputEmail">Email</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend bg-transparent">
+                                            <span class="input-group-text bg-transparent border-right-0">
+                                                <i class="mdi mdi-email-outline text-primary"></i>
+                                            </span>
+                                        </div>
+                                        <input id="email" type="email"
+                                            class="form-control @error('email') is-invalid @enderror form-control-lg border-left-0"
+                                            placeholder="Enter your email" name="email" value="{{ old('email') }}"
+                                            required autocomplete="email" autofocus>
 
-                                <div class="text-left mb-2 mt-3 pl-3">
-                                    <span for="email"
-                                        class="text-base leading-3 text-left text-gray-500">{{ __('Email') }}</span>
-                                </div>
-                                <div class="relative rounded-md col-md-12 items-center">
-                                    <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
-                                        <i class="bi bi-envelope-fill text-gray-300" viewBox="0 0 16 16"></i>
-
+                                        @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
                                     </div>
-                                    <input id="email" type="email"
-                                        class="form-control @error('email') is-invalid @enderror rounded-md border-1 py-4 pl-12 text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                                        name="email" placeholder="example@mail.com" value="{{ old('email') }}" required
-                                        autocomplete="email" autofocus>
-
-                                    @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
                                 </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword">Password</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend bg-transparent">
+                                            <span class="input-group-text bg-transparent border-right-0">
+                                                <i class="mdi mdi-lock-outline text-primary"></i>
+                                            </span>
+                                        </div>
+                                        <input id="password" type="password"
+                                            class="form-control @error('password') is-invalid @enderror form-control-lg border-left-0"
+                                            placeholder="Password" name="password" required
+                                            autocomplete="current-password">
 
-                                <div class="flex space-x-7 items-center mt-3 mb-2 px-3">
-                                    <span
-                                        class="text-base text-left leading-3 text-gray-500">{{ __('Password') }}</span>
-                                    @if (Route::has('password.request'))
-                                    <a class="btn-link text-blue-400 hover:text-blue-600 text-right ml-auto"
-                                        href="{{ route('password.request') }}">
-                                        {{ __('Forgot Password?') }}
-                                    </a>
-                                    @endif
-                                </div>
-                                <div class="relative rounded-md col-md-12">
-                                    <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
-                                        <i class="bi bi-lock-fill text-gray-300" viewBox="0 0 16 16"></i>
+                                        @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
                                     </div>
-                                    <input id="password" type="password"
-                                        class="form-control @error('password') is-invalid @enderror rounded-md border-1 py-4 pl-12 text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                                        name="password" required autocomplete="current-password"
-                                        placeholder="**********">
-
-                                    @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
                                 </div>
-
-                                <div class="flex space-x-2 pl-3 my-3">
+                                <div class="my-2 d-flex justify-content-between align-items-center">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="remember" id="remember"
-                                            {{ old('remember') ? 'checked' : '' }}>
-
-                                        <label class="form-check-label text-gray-500" for="remember">
-                                            {{ __('Remember Me') }}
+                                        <label class="form-check-label text-muted">
+                                            <input type="checkbox" class="form-check-input">
+                                            Keep me signed in
                                         </label>
                                     </div>
+                                    @if (Route::has('password.request'))
+                                    <a href="{{ route('password.request') }}" class="auth-link text-black">Forgot
+                                        password?</a>
+                                    @endif
                                 </div>
-
-                                <div class="col-md-12 mb-3">
+                                <div class="my-3">
                                     <button type="submit"
-                                        class="btn bg-blue-400 py-2 text-center text-white w-full hover:bg-blue-600">
-                                        {{ __('Login') }}
+                                        class="btn btn-primary bg-blue-600 hover:bg-blue-500 btn-lg font-weight-medium auth-form-btn">LOGIN</button>
+                                </div>
+                                <div class="mb-2 d-flex">
+                                    <button type="button" class="btn btn-facebook auth-form-btn flex-grow me-1">
+                                        <i class="mdi mdi-facebook me-2"></i>Facebook
+                                    </button>
+                                    <button type="button" class="btn btn-google auth-form-btn flex-grow ms-1">
+                                        <i class="mdi mdi-google me-2"></i>Google
                                     </button>
                                 </div>
+                                <div class="text-center mt-4 font-weight-light">
+                                    Don't have an account? <a href="{{ route('register') }}"
+                                        class="text-primary">Create</a>
+                                </div>
+                                <div class="text-center mt-4 font-weight-light">
+                                    Can't signin now? <a href="{{ URL::previous() }}" class="text-primary">Go Back</a>
+                                </div>
                             </form>
-
-                            <div class="line items-start justify-center mx-auto mb-3">
-                            </div>
-
-                            <div class="flex space-x-2 justify-center items-center mx-3 pb-3 text-gray-400 text-sm">
-                                <p>New account? <a href="{{ route('register') }}"
-                                        class="btn-link text-center text-blue-400 hover:text-blue-600">Register</a></p>
-                                <span>OR</span>
-                                <span>Click to <a href="{{ URL::previous() }}"
-                                        class="btn-link text-center text-blue-400 hover:text-blue-600">Go
-                                        Back</a></span>
-                            </div>
                         </div>
+                    </div>
+                    <div class="col-lg-6 login-half-bg d-flex flex-row">
+                        <p class="text-white font-weight-medium text-center flex-grow align-self-end">Copyright &copy;
+                            2023 All rights reserved.</p>
                     </div>
                 </div>
             </div>
+            <!-- content-wrapper ends -->
         </div>
+        <!-- page-body-wrapper ends -->
     </div>
-
-
-    <!-- Footer -->
-    <footer class="footer mx-auto">
-        <div class="container">
-            <div class="text-left text-white my-3">
-                <p class="avl awc awo axr">© 2023 Private Hostels Booking, Inc. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="{{asset('vendors/base/vendor.bundle.base.js')}}"></script>
+    <!-- endinject -->
+    <!-- inject:js -->
+    <script src="{{asset('js/off-canvas.js')}}"></script>
+    <script src="{{asset('js/hoverable-collapse.js')}}"></script>
+    <script src="{{asset('js/template.js')}}"></script>
+    <!-- endinject -->
 </body>
 
 </html>

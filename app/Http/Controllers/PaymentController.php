@@ -45,10 +45,6 @@ class PaymentController extends Controller
     {
         $paymentDetails = Paystack::getPaymentData();
 
-        // dd($paymentDetails);
-        // Now you have the payment details,
-        // you can store the authorization_code in your db to allow for recurrent subscriptions
-        // you can then redirect or do whatever you want
 
         $status = $paymentDetails['data']['status'];
         $channel = $paymentDetails['data']['channel'];
@@ -91,7 +87,7 @@ class PaymentController extends Controller
         $user = User::find($booking->user_id);
         $payment = Payment::where('booking_id', $booking->id)->first();
 
-        $amountInWords = ucwords(numberToWords($payment->amount));
+        $amountInWords = ucwords(numberToWords($booking->room->price_per_year));
 
         return view('booking.invoice', compact('booking', 'user', 'payment', 'amountInWords'));
     }

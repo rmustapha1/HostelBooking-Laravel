@@ -1,124 +1,116 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Private Hostels Booking</title>
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <!-- Include Bootstrap CSS from CDN -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Private Hostels Booking Dashboard</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="{{asset('vendors/mdi/css/materialdesignicons.min.css')}}">
+    <link rel="stylesheet" href="{{asset('vendors/base/vendor.bundle.base.css')}}">
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <link rel="stylesheet" href="{{asset('vendors/datatables.net-bs4/dataTables.bootstrap4.css')}}">
+    <!-- End plugin css for this page -->
     <!-- Include Tailwind CSS from CDN -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <!-- Include Bootstrap JavaScript and jQuery from CDN -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ asset('images/site.webmanifest') }}">
+    <!-- inject:css -->
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="{{asset('images/favicon.png')}}" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400&display=swap" rel="stylesheet">
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    <!-- Other CSS and JavaScript imports as needed -->
-
 </head>
 
-<body id="login">
-    <div class="content-wrap">
-        <div class="container mx-auto mt-8">
-            <div class="row justify-content-center">
-                <div class="col-md-7 lg:text-left lg:py-5 lg:pl-20 hidden sm:block md:block">
-                    <h2 class="text-base font-semibold leading-7 text-blue-300">Welcome To PrivateHostels</h2>
-                    <div class="line1 items-start justify-start my-2 text-white">
-                    </div>
-                    <h1 class="text-white font-bold lg:text-5xl sm:text-4xl mb-5">The easy way to find accommodation.
-                    </h1>
-                </div>
-                <div class="col-md-5">
-                    <div class="bg-white shadow-sm rounded-xl border-t-blue-600 border-t-8">
-                        <h1 class="text-base text-center font-semibold leading-7 text-blue-500 mt-5">
-                            {{ __('Register') }}
-                        </h1>
-                        <div class="line2 items-start justify-center mx-auto my-2">
-                        </div>
-                        <div class="form">
-                            <form method="POST" action="{{ route('register') }}">
+<body>
+
+    <style>
+        * {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+    </style>
+    <div class="container-scroller">
+        <div class="container-fluid page-body-wrapper full-page-wrapper">
+            <div class="content-wrapper d-flex align-items-stretch auth auth-img-bg">
+                <div class="row flex-grow">
+                    <div class="col-lg-6 d-flex align-items-center justify-content-center">
+                        <div class="auth-form-transparent text-left p-3">
+                            <div class="brand-logo logo">
+                                <img class="h-10 w-auto" src="{{ asset('images/logo.png') }}" alt="logo">
+                                <p>Private<span>Hostels</span></p>
+                            </div>
+                            <h4>New here?</h4>
+                            <h6 class="font-weight-light">Join us today! It takes only few steps</h6>
+                            <form class="pt-3" method="POST" action="{{ route('register') }}">
                                 @csrf
-                                <div class="text-left mb-2 mt-3 pl-3">
-                                    <span for="fname" class="text-base leading-3 text-left text-gray-500">{{ __('Firstname') }}</span>
-                                </div>
-                                <div class="relative rounded-md col-md-12 items-center">
-                                    <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
-                                        <i class="bi bi-person-fill text-gray-300" viewBox="0 0 16 16"></i>
-                                    </div>
-                                    <input id="fname" type="text" class="form-control @error('fname') is-invalid @enderror rounded-md border-1 py-4 pl-12 text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" name="fname" placeholder="Enter your firstname" value="{{ old('fname') }}" required autocomplete="fname" autofocus>
-
-                                    @error('fname')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                                <div class="text-left mb-2 mt-3 pl-3">
-                                    <span for="lname" class="text-base leading-3 text-left text-gray-500">{{ __('Lastname') }}</span>
-                                </div>
-                                <div class="relative rounded-md col-md-12 items-center">
-                                    <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
-                                        <i class="bi bi-person-fill text-gray-300" viewBox="0 0 16 16"></i>
-                                    </div>
-                                    <input id="lname" type="text" class="form-control @error('lname') is-invalid @enderror rounded-md border-1 py-4 pl-12 text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" name="lname" placeholder="Enter your lastname" value="{{ old('lname') }}" required autocomplete="lname" autofocus>
-
-                                    @error('lname')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-
-                                <div class="text-left mb-2 mt-3 pl-3">
-                                    <span for="email" class="text-base leading-3 text-left text-gray-500">{{ __('Email') }}</span>
-                                </div>
-
-                                <div class="relative rounded-md col-md-12 items-center">
-                                    <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
-                                        <i class="bi bi-envelope-fill text-gray-300" viewBox="0 0 16 16"></i>
-
-                                    </div>
-                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror rounded-md border-1 py-4 pl-12 text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" name="email" placeholder="example@mail.com" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                    @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                    <div class="text-left mb-2 mt-3 pl-3">
-                                        <span for="phone" class="text-base leading-3 text-left text-gray-500">{{ __('Telephone number') }}</span>
-                                    </div>
-
-                                    <div class="relative rounded-md col-md-12 items-center">
-                                        <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
-                                            <i class="bi bi-phone text-gray-300" viewBox="0 0 16 16"></i>
-
+                                <div class="form-group">
+                                    <label>Firstname</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend bg-transparent">
+                                            <span class="input-group-text bg-transparent border-right-0">
+                                                <i class="mdi mdi-account-outline text-primary"></i>
+                                            </span>
                                         </div>
-                                        <input id="phone" type="tel" class="form-control @error('phone') is-invalid @enderror rounded-md border-1 py-4 pl-12 text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" name="phone" placeholder="0000000000" value="{{ old('phone') }}" required autocomplete="phone" autofocus>
+                                        <input id="fname" type="text" class="form-control form-control-lg border-left-0" name="fname" placeholder="Enter your firstname" required autocomplete="fname" autofocus>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Lastname</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend bg-transparent">
+                                            <span class="input-group-text bg-transparent border-right-0">
+                                                <i class="mdi mdi-account-outline text-primary"></i>
+                                            </span>
+                                        </div>
+                                        <input id="lname" type="text" class="form-control form-control-lg border-left-0" name="lname" placeholder="Enter your lastname" required autocomplete="lname" autofocus>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail">Email</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend bg-transparent">
+                                            <span class="input-group-text bg-transparent border-right-0">
+                                                <i class="mdi mdi-email-outline text-primary"></i>
+                                            </span>
+                                        </div>
+                                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror form-control-lg border-left-0" placeholder="Enter your email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
-                                        @error('phone')
+                                        @error('email')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                         @enderror
-                                        <input id="role" type="hidden" name="role" value="Student">
                                     </div>
-                                    <div class="text-left mb-2 mt-3 pl-3">
-                                        <span for="password" class="text-base leading-3 text-left text-gray-500">{{ __('Password') }}</span>
-                                    </div>
-                                    <div class="relative rounded-md col-md-12">
-                                        <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
-                                            <i class="bi bi-lock-fill text-gray-300" viewBox="0 0 16 16"></i>
+                                </div>
+                                <div class="form-group">
+                                    <label>Phone</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend bg-transparent">
+                                            <span class="input-group-text bg-transparent border-right-0">
+                                                <i class="mdi mdi-phone text-primary"></i>
+                                            </span>
                                         </div>
-                                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror rounded-md border-1 py-4 pl-12 text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" name="password" required placeholder="**********" autocomplete="new-password">
+                                        <input id="phone" type="tel" class="form-control form-control-lg border-left-0" name="phone" placeholder="0000000000" required autocomplete="phone" autofocus>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword">Password</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend bg-transparent">
+                                            <span class="input-group-text bg-transparent border-right-0">
+                                                <i class="mdi mdi-lock-outline text-primary"></i>
+                                            </span>
+                                        </div>
+                                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror form-control-lg border-left-0" placeholder="Password" name="password" required autocomplete="current-password">
 
                                         @error('password')
                                         <span class="invalid-feedback" role="alert">
@@ -126,49 +118,59 @@
                                         </span>
                                         @enderror
                                     </div>
-
-
-                                    <div class="text-left mb-2 mt-3 pl-3">
-                                        <span for="password" class="text-base leading-3 text-left text-gray-500">{{ __('Confirm Password') }}</span>
-                                    </div>
-
-                                    <div class="relative rounded-md col-md-12 mb-3">
-                                        <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4">
-                                            <i class="bi bi-lock-fill text-gray-300" viewBox="0 0 16 16"></i>
+                                </div>
+                                <div class="form-group">
+                                    <label>Confirm Password</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend bg-transparent">
+                                            <span class="input-group-text bg-transparent border-right-0">
+                                                <i class="mdi mdi-lock-outline text-primary"></i>
+                                            </span>
                                         </div>
-                                        <input id="password-confirm" type="password" class="form-control rounded-md border-1 py-4 pl-12 text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" name="password_confirmation" required placeholder="**********" autocomplete="new-password">
+                                        <input id="password-confirm" type="password" class="form-control form-control-lg border-left-0" name="password_confirmation" required placeholder="Confirm Password" autocomplete="new-password">
                                     </div>
-
-                                    <div class="col-md-12 mb-3">
-                                        <button type="submit" class="btn bg-blue-400 py-2 text-center mb-5 text-white w-full hover:bg-blue-600">
-                                            {{ __('Register') }}
-                                        </button>
+                                </div>
+                                <div class="mb-4">
+                                    <div class="form-check">
+                                        <label class="form-check-label text-muted">
+                                            <input type="checkbox" class="form-check-input">
+                                            I agree to all Terms & Conditions
+                                        </label>
                                     </div>
+                                </div>
+                                <div class="mt-3">
+                                    <a type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">SIGN
+                                        UP</a>
+                                </div>
+                                <div class="text-center mt-4 font-weight-light">
+                                    Already have an account? <a href="{{ route('login') }}" class="text-primary">Login</a>
+                                </div>
+                                <div class="text-center mt-4 font-weight-light">
+                                    Can't signup now? <a href="{{ route('home') }}" class="text-primary">Go
+                                        Home</a>
+                                </div>
                             </form>
-                            <div class="line items-start justify-center mx-auto mb-3">
-                            </div>
-
-                            <div class="flex space-x-2 justify-center items-center mx-3 pb-3 text-gray-400 text-sm">
-                                <p>Already have an account? <a href="{{ route('login') }}" class="btn-link text-center text-blue-400 hover:text-blue-600">Login</a></p>
-                                <span>OR</span>
-                                <span>Go back <a href="{{ route('home') }}" class="btn-link text-center text-blue-400 hover:text-blue-600">Home</a></span>
-                            </div>
                         </div>
+                    </div>
+                    <div class="col-lg-6 register-half-bg d-flex flex-row">
+                        <p class="text-white font-weight-medium text-center flex-grow align-self-end">Copyright &copy;
+                            2023 All rights reserved.</p>
                     </div>
                 </div>
             </div>
+            <!-- content-wrapper ends -->
         </div>
+        <!-- page-body-wrapper ends -->
     </div>
-
-
-    <!-- Footer -->
-    <footer class="footer mx-auto">
-        <div class="container">
-            <div class="text-left text-white my-3">
-                <p class="avl awc awo axr">© 2023 Private Hostels Booking, Inc. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="{{asset('vendors/base/vendor.bundle.base.js')}}"></script>
+    <!-- endinject -->
+    <!-- inject:js -->
+    <script src="{{asset('js/off-canvas.js')}}"></script>
+    <script src="{{asset('js/hoverable-collapse.js')}}"></script>
+    <script src="{{asset('js/template.js')}}"></script>
+    <!-- endinject -->
 </body>
 
 </html>

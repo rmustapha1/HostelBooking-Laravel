@@ -37,7 +37,7 @@
             <div class="flex lg:flex-1">
                 <a href="#" class="-m-1.5 p-1.5 logo items-center justify-center">
                     <span class="sr-only">Private Hostels Booking</span>
-                    <img class="h-8 w-auto" src="{{ asset('images/logo.png') }}" width="54" height="54" alt="">
+                    <img class="h-10 w-auto" src="{{ asset('images/logo.png') }}" alt="logo">
                     <p>Private<span>Hostels</span></p>
 
                 </a>

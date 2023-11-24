@@ -10,6 +10,8 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ComplaintController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Middleware\AdminMiddleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +33,6 @@ Route::get('/about', function () {
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
-Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 // User Routes
@@ -89,3 +90,15 @@ Route::get('/schools/{school}', 'SchoolController@show');
 Route::get('/schools/{school}/edit', 'SchoolController@edit');
 Route::put('/schools/{school}', 'SchoolController@update');
 Route::delete('/schools/{school}', 'SchoolController@destroy');
+
+
+//Dashboard 
+Route::group(['middleware' => ['auth', AdminMiddleware::class]], function () {
+    Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+    Route::get('/admin/hostels', [DashboardController::class, 'manageHostels'])->name('admin.hostels.index');
+    Route::get('/admin/hostels/create', [DashboardController::class, 'createHostel'])->name('admin.hostels.create');
+    Route::post('/admin/hostels', [DashboardController::class, 'storeHostel'])->name('admin.hostels.store');
+    Route::get('/admin/hostels/{id}/edit', [DashboardController::class, 'editHostel'])->name('admin.hostels.edit');
+    Route::put('/admin/hostels/{id}', [DashboardController::class, 'updateHostel'])->name('admin.hostels.update');
+    Route::delete('/admin/hostels/{id}', [DashboardController::class, 'deleteHostel'])->name('admin.hostels.delete');
+});
