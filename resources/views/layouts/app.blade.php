@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Private Hostels Booking</title>
+    <title>QuellHub</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <!-- Include Bootstrap CSS from CDN -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
@@ -32,14 +32,12 @@
 </head>
 
 <body class="bg-white">
-    <header class="bg-white fixed inset-x-0 top-0 z-50">
+    <header class="bg-gray-200 fixed inset-x-0 top-0 z-50">
         <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
             <div class="flex lg:flex-1">
                 <a href="#" class="-m-1.5 p-1.5 logo items-center justify-center">
-                    <span class="sr-only">Private Hostels Booking</span>
-                    <img class="h-10 w-auto" src="{{ asset('images/logo.png') }}" alt="logo">
-                    <p>Private<span>Hostels</span></p>
-
+                    <span class="sr-only">QuellHub</span>
+                    <img class="h-10 w-auto" src="{{ asset('images/quellhub_logo.png') }}" alt="logo">
                 </a>
             </div>
             <div class="flex lg:hidden">
@@ -56,7 +54,7 @@
             <div class="hidden lg:flex lg:gap-x-12">
                 <a href="{{ route('home') }}" class="text-sm font-semibold leading-6 text-gray-700">Home</a>
                 <a href="{{ route('about') }}" class="text-sm font-semibold leading-6 text-gray-700">About</a>
-                <a href="{{ route('hostels.index') }}" class="text-sm font-semibold leading-6 text-gray-700">Hostels</a>
+                <a href="{{ route('hostels.index') }}" class="text-sm font-semibold leading-6 text-gray-700">Find Rooms</a>
                 <a href="{{ route('contact') }}" class="text-sm font-semibold leading-6 text-gray-700">Contact</a>
             </div>
             <div class="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -104,9 +102,8 @@
                 class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-700/10">
                 <div class="flex items-center justify-between">
                     <a href="#" class="-m-1.5 p-1.5 logo">
-                        <span class="sr-only">Private Hostels Booking</span>
-                        <img class="h-8 w-auto" src="{{ asset('images/logo.png') }}" alt="">
-                        <p>Private<span>Hostels</span></p>
+                        <span class="sr-only">QuellHub</span>
+                        <img class="h-8 w-auto" src="{{ asset('images/quellhub_logo.png') }}" alt="">
                     </a>
                     <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700 close-menu-button">
                         <span class="sr-only">Close menu</span>
@@ -124,7 +121,7 @@
                             <a href="{{ route('about') }}"
                                 class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-700 hover:bg-gray-50">About</a>
                             <a href="{{ route('hostels.index') }}"
-                                class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-700 hover:bg-gray-50">Hostels</a>
+                                class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-700 hover:bg-gray-50">Find Rooms</a>
                             <a href="{{ route('contact') }}"
                                 class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-700 hover:bg-gray-50">Contact</a>
                         </div>
@@ -179,7 +176,7 @@
         <div class="container">
 
             <div class="text-center font-black text-gray-950 my-3 text-sm">
-                <p class="avl awc awo axr">© 2023 Private Hostels Booking, Inc. All rights reserved.</p>
+                <p class="avl awc awo axr">© 2023 QuellHub, Inc. All rights reserved.</p>
             </div>
         </div>
     </footer>
