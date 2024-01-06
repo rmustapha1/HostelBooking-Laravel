@@ -102,7 +102,7 @@
         </div>
         <div class="row items-center justify-center">
             <div class="col">
-                <h2>Private Hostels Booking</h2>
+                <h2>QUELLHUB</h2>
 
                 <p>Address: Lamashegu - Opp. Justice FM, Tamale.
                     <br>Phone Number: 0207728823 / 0543214796
