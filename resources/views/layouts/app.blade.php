@@ -32,12 +32,12 @@
 </head>
 
 <body class="bg-white">
-    <header class="bg-gray-200 fixed inset-x-0 top-0 z-50">
+    <header class="bg-white fixed inset-x-0 top-0 z-50">
         <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
             <div class="flex lg:flex-1">
                 <a href="#" class="-m-1.5 p-1.5 logo items-center justify-center">
                     <span class="sr-only">QuellHub</span>
-                    <img class="h-10 w-auto" src="{{ asset('images/quellhub_logo.png') }}" alt="logo">
+                    <img class="h-14 w-auto" src="{{ asset('images/quellhub_logo.png') }}" alt="logo">
                 </a>
             </div>
             <div class="flex lg:hidden">

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Booking Invoice</title>
+    <title>QuellHub Booking Invoice</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -109,7 +109,7 @@
                 </p>
             </div>
             <div class="col float-right">
-                <img src="{{asset('images/android-chrome-512x512.png')}}" height="70" width="70" style="margin:10px 0;">
+                <img src="{{asset('images/quellhub_logo.png')}}" height="70" width="auto" style="margin:10px 0;">
             </div>
         </div>
         <h1 class="centered font-black text-3xl">Invoice: {{$payment->invoice_no}}</h1>
