@@ -22,7 +22,7 @@ class Hostel extends Model
     }
 
     // Define the relationship with subscriptions
-    public function subscriptions()
+    public function subscription()
     {
         return $this->hasMany(Subscription::class);
     }
@@ -33,5 +33,9 @@ class Hostel extends Model
     public function reviews()
     {
         return $this->hasMany(Review::class);
+    }
+    public function manager()
+    {
+        return $this->belongsTo(User::class);
     }
 }

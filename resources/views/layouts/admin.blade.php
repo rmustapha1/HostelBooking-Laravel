@@ -9,13 +9,26 @@
     <link rel="stylesheet" href="{{asset('vendors/mdi/css/materialdesignicons.min.css')}}">
     <link rel="stylesheet" href="{{asset('vendors/base/vendor.bundle.base.css')}}">
     <!-- endinject -->
-    <!-- plugin css for this page -->
-    <link rel="stylesheet" href="{{asset('vendors/datatables.net-bs4/dataTables.bootstrap4.css')}}">
     <!-- End plugin css for this page -->
+    <!-- Include Bootstrap CSS and DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
     <!-- inject:css -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
+    <!-- Include Tailwind CSS from CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ asset('images/site.webmanifest') }}">
     <!-- endinject -->
     <link rel="shortcut icon" href="{{asset('images/favicon.png')}}" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -149,10 +162,10 @@
                         </div>
                     </li>
                     <li class="nav-item nav-profile dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="profileDropdown">
+                        <a class="nav-link dropdown-toggle flex items-center" href="#" data-bs-toggle="dropdown"
+                            id="profileDropdown">
                             <img src="{{asset('images/profile.png')}}" alt="profile" />
-                            <span class="nav-profile-name">Welcome, {{ auth()->user()->fname }}
-                                {{ auth()->user()->role }}</span>
+                            <span class="nav-profile-name">Welcome, {{ auth()->user()->fname }}</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown"
                             aria-labelledby="profileDropdown">
@@ -185,7 +198,7 @@
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">
+                        <a class="nav-link" href="{{route('admin.dashboard')}}">
                             <i class="mdi mdi-home menu-icon"></i>
                             <span class="menu-title">Dashboard</span>
                         </a>
@@ -199,10 +212,10 @@
                         </a>
                         <div class="collapse" id="ui-basic">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Add
+                                <li class="nav-item"> <a class="nav-link" href="{{route('admin.hostels.create')}}">Add
                                         Hostel</a></li>
-                                <li class="nav-item"> <a class="nav-link"
-                                        href="pages/ui-features/typography.html">Hostel List</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="{{route('hostels')}}">Hostel
+                                        List</a></li>
                             </ul>
                         </div>
                     </li>
@@ -274,8 +287,6 @@
     <!-- endinject -->
     <!-- Plugin js for this page-->
     <script src="{{asset('vendors/chart.js/Chart.min.js')}}"></script>
-    <script src="{{asset('vendors/datatables.net/jquery.dataTables.js')}}"></script>
-    <script src="{{asset('vendors/datatables.net-bs4/dataTables.bootstrap4.js')}}"></script>
     <!-- End plugin js for this page-->
     <!-- inject:js -->
     <script src="{{asset('js/off-canvas.js')}}"></script>
@@ -285,11 +296,19 @@
     <!-- Custom js for this page-->
     <script src="{{asset('js/dashboard.js')}}"></script>
     <script src="{{asset('js/data-table.js')}}"></script>
-    <script src="{{asset('js/jquery.dataTables.js')}}"></script>
-    <script src="{{asset('js/dataTables.bootstrap4.js')}}"></script>
     <!-- End custom js for this page-->
 
     <script src="{{asset('js/jquery.cookie.js')}}" type="text/javascript"></script>
+
+    <!-- Include Bootstrap JavaScript and jQuery from CDN -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <!-- Include jQuery, Bootstrap JS, and DataTables JS -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+
 </body>
 
 </html>
