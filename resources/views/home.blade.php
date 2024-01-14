@@ -6,7 +6,7 @@
     <div id="hero">
         <div class="container">
             <div class="lg:text-left lg:py-5 lg:pl-20 sm:items-center md:items-center">
-                <h1 class="text-white font-bold lg:text-5xl sm:text-3xl mb-2">PrivateHostels</h1>
+                <h1 class="text-white font-bold lg:text-5xl sm:text-3xl mb-2">QUELLHUB</h1>
                 <p class="text-white lg:text-lg sm:text-sm">The easy way to find accommodation.</p>
                 <span class="text-white lg:text-lg sm:text-sm">Search, Reserve, Pay, and Move in.</span>
 
@@ -35,9 +35,9 @@
         <div class="mx-auto max-w-2xl lg:text-center">
             <h2 class="text-base font-semibold leading-7 text-blue-300">Getting Started</h2>
             <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Enjoy the most affordable
-                firstclass services at our hostels.</p>
+                firstclass services at our hostels and apartments.</p>
             <p class="mt-6 text-lg leading-8 text-gray-600">We serve you the most affordable top notched private
-                hostels for your accommodation. Acknowledged the first, most secured and fastest private hostel
+                hostels and apartments for your accommodation. Acknowledged the first, most secured and fastest private hostel
                 booking platform in the nation.</p>
         </div>
         <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
@@ -51,7 +51,7 @@
                         </div>
                         Find and Book a Room
                     </div>
-                    <span class="mt-2 text-base leading-7 text-gray-600">Search for the best hostels and book the
+                    <span class="mt-2 text-base leading-7 text-gray-600">Search for the best hostels and apartments and book the
                         room
                         that suits you.</span>
                 </div>

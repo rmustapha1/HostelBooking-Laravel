@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Private Hostels Booking Dashboard</title>
+    <title>QellHub Register</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{asset('vendors/mdi/css/materialdesignicons.min.css')}}">
     <link rel="stylesheet" href="{{asset('vendors/base/vendor.bundle.base.css')}}">
@@ -45,7 +45,7 @@
                     <div class="col-lg-6 d-flex align-items-center justify-content-center">
                         <div class="auth-form-transparent text-left p-3">
                             <div class="brand-logo logo">
-                                <img class="h-10 w-auto" src="{{ asset('images/logo.png') }}" alt="logo">
+                                <img class="h-10 w-auto" src="{{ asset('images/quellhub_logo.png') }}" alt="logo">
                                 <p>Private<span>Hostels</span></p>
                             </div>
                             <h4>New here?</h4>

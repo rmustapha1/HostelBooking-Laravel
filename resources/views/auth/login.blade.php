@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Private Hostels Booking Dashboard</title>
+    <title>QuellHub Login</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{asset('vendors/mdi/css/materialdesignicons.min.css')}}">
     <link rel="stylesheet" href="{{asset('vendors/base/vendor.bundle.base.css')}}">
@@ -43,8 +43,7 @@
                     <div class="col-lg-6 d-flex align-items-center justify-content-center">
                         <div class="auth-form-transparent text-left p-3">
                             <div class="brand-logo logo">
-                                <img class="h-10 w-auto" src="{{ asset('images/logo.png') }}" alt="logo">
-                                <p>Private<span>Hostels</span></p>
+                                <img class="h-14 w-auto" src="{{ asset('images/quellhub_logo.png') }}" alt="logo">
                             </div>
                             <h4>Welcome back!</h4>
                             <h6 class="font-weight-light">Happy to see you again!</h6>
