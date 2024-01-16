@@ -20,15 +20,17 @@ class ComposerStaticInitaa322c53454393ed775cfe4807d54a50
         '662a729f963d39afe703c9d9b7ab4a8c' => __DIR__ . '/..' . '/symfony/polyfill-php83/bootstrap.php',
         'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
+        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '3bd81c9b8fcc150b69d8b63b4d2ccf23' => __DIR__ . '/..' . '/spatie/flare-client-php/src/helpers.php',
         '35a6ad97d21e794e7e22a17d806652e4' => __DIR__ . '/..' . '/nunomaduro/termwind/src/Functions.php',
+        'e39a8b23c42d4e1452234d762b03835a' => __DIR__ . '/..' . '/ramsey/uuid/src/functions.php',
         '09f6b20656683369174dd6fa83b7e5fb' => __DIR__ . '/..' . '/symfony/polyfill-uuid/bootstrap.php',
-        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
+        '131fa9341c01afda751232ac8f8030f8' => __DIR__ . '/..' . '/bmatovu/oauth-negotiator/src/Support/helpers.php',
         '47e1160838b5e5a10346ac4084b58c23' => __DIR__ . '/..' . '/laravel/prompts/src/helpers.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         'da91a01b5badbe5394c83814ef5982ea' => __DIR__ . '/..' . '/php-flasher/flasher/helpers.php',
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
-        'e39a8b23c42d4e1452234d762b03835a' => __DIR__ . '/..' . '/ramsey/uuid/src/functions.php',
+        'd96b83ff5828c258682b1691cb8fc4ae' => __DIR__ . '/..' . '/bmatovu/laravel-mtn-momo/src/Support/helpers.php',
         '265b4faa2b3a9766332744949e83bf97' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Collections/helpers.php',
         'c7a3c339e7e14b60e06a2d7fcce9476b' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Events/functions.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
@@ -181,6 +183,9 @@ class ComposerStaticInitaa322c53454393ed775cfe4807d54a50
         'B' => 
         array (
             'Brick\\Math\\' => 11,
+            'Bmatovu\\OAuthNegotiator\\' => 24,
+            'Bmatovu\\MtnMomo\\Database\\Factories\\' => 35,
+            'Bmatovu\\MtnMomo\\' => 16,
         ),
         'A' => 
         array (
@@ -546,6 +551,18 @@ class ComposerStaticInitaa322c53454393ed775cfe4807d54a50
         array (
             0 => __DIR__ . '/..' . '/brick/math/src',
         ),
+        'Bmatovu\\OAuthNegotiator\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/bmatovu/oauth-negotiator/src',
+        ),
+        'Bmatovu\\MtnMomo\\Database\\Factories\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/bmatovu/laravel-mtn-momo/database/factories',
+        ),
+        'Bmatovu\\MtnMomo\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/bmatovu/laravel-mtn-momo/src',
+        ),
         'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
@@ -554,9 +571,10 @@ class ComposerStaticInitaa322c53454393ed775cfe4807d54a50
     );
 
     public static $classMap = array (
-        'App\\Console\\Commands\\BookingCancelCommand' => __DIR__ . '/../..' . '/app/Console/Commands/BookingCancelCommand.php',
+        'App\\Console\\Commands\\CancelExpiredBookings' => __DIR__ . '/../..' . '/app/Console/Commands/CancelExpiredBookings.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\Admin\\DashboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/DashboardController.php',
         'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
@@ -564,6 +582,7 @@ class ComposerStaticInitaa322c53454393ed775cfe4807d54a50
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\BookingController' => __DIR__ . '/../..' . '/app/Http/Controllers/BookingController.php',
+        'App\\Http\\Controllers\\ComplaintController' => __DIR__ . '/../..' . '/app/Http/Controllers/ComplaintController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\HostelController' => __DIR__ . '/../..' . '/app/Http/Controllers/HostelController.php',
@@ -574,6 +593,7 @@ class ComposerStaticInitaa322c53454393ed775cfe4807d54a50
         'App\\Http\\Controllers\\SubscriptionController' => __DIR__ . '/../..' . '/app/Http/Controllers/SubscriptionController.php',
         'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
+        'App\\Http\\Middleware\\AdminMiddleware' => __DIR__ . '/../..' . '/app/Http/Middleware/AdminMiddleware.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'App\\Http\\Middleware\\PreventRequestsDuringMaintenance' => __DIR__ . '/../..' . '/app/Http/Middleware/PreventRequestsDuringMaintenance.php',
@@ -592,6 +612,7 @@ class ComposerStaticInitaa322c53454393ed775cfe4807d54a50
         'App\\Models\\School' => __DIR__ . '/../..' . '/app/Models/School.php',
         'App\\Models\\Subscription' => __DIR__ . '/../..' . '/app/Models/Subscription.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
+        'App\\Notifications\\PaymentNotification' => __DIR__ . '/../..' . '/app/Notifications/PaymentNotification.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
@@ -599,6 +620,36 @@ class ComposerStaticInitaa322c53454393ed775cfe4807d54a50
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\Providers\\SchoolComposerServiceProvider' => __DIR__ . '/../..' . '/app/Providers/SchoolComposerServiceProvider.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
+        'Bmatovu\\MtnMomo\\Console\\BootstrapCommand' => __DIR__ . '/..' . '/bmatovu/laravel-mtn-momo/src/Console/BootstrapCommand.php',
+        'Bmatovu\\MtnMomo\\Console\\RegisterIdCommand' => __DIR__ . '/..' . '/bmatovu/laravel-mtn-momo/src/Console/RegisterIdCommand.php',
+        'Bmatovu\\MtnMomo\\Console\\RequestSecretCommand' => __DIR__ . '/..' . '/bmatovu/laravel-mtn-momo/src/Console/RequestSecretCommand.php',
+        'Bmatovu\\MtnMomo\\Console\\ValidateIdCommand' => __DIR__ . '/..' . '/bmatovu/laravel-mtn-momo/src/Console/ValidateIdCommand.php',
+        'Bmatovu\\MtnMomo\\Database\\Factories\\TokenFactory' => __DIR__ . '/..' . '/bmatovu/laravel-mtn-momo/database/factories/TokenFactory.php',
+        'Bmatovu\\MtnMomo\\Exceptions\\CollectionRequestException' => __DIR__ . '/..' . '/bmatovu/laravel-mtn-momo/src/Exceptions/CollectionRequestException.php',
+        'Bmatovu\\MtnMomo\\Exceptions\\DisbursementRequestException' => __DIR__ . '/..' . '/bmatovu/laravel-mtn-momo/src/Exceptions/DisbursementRequestException.php',
+        'Bmatovu\\MtnMomo\\Exceptions\\MtnMomoRequestException' => __DIR__ . '/..' . '/bmatovu/laravel-mtn-momo/src/Exceptions/MtnMomoRequestException.php',
+        'Bmatovu\\MtnMomo\\Exceptions\\RemittanceRequestException' => __DIR__ . '/..' . '/bmatovu/laravel-mtn-momo/src/Exceptions/RemittanceRequestException.php',
+        'Bmatovu\\MtnMomo\\Models\\Token' => __DIR__ . '/..' . '/bmatovu/laravel-mtn-momo/src/Models/Token.php',
+        'Bmatovu\\MtnMomo\\MtnMomoServiceProvider' => __DIR__ . '/..' . '/bmatovu/laravel-mtn-momo/src/MtnMomoServiceProvider.php',
+        'Bmatovu\\MtnMomo\\Products\\Collection' => __DIR__ . '/..' . '/bmatovu/laravel-mtn-momo/src/Products/Collection.php',
+        'Bmatovu\\MtnMomo\\Products\\Disbursement' => __DIR__ . '/..' . '/bmatovu/laravel-mtn-momo/src/Products/Disbursement.php',
+        'Bmatovu\\MtnMomo\\Products\\Product' => __DIR__ . '/..' . '/bmatovu/laravel-mtn-momo/src/Products/Product.php',
+        'Bmatovu\\MtnMomo\\Products\\Remittance' => __DIR__ . '/..' . '/bmatovu/laravel-mtn-momo/src/Products/Remittance.php',
+        'Bmatovu\\MtnMomo\\Repositories\\TokenRepository' => __DIR__ . '/..' . '/bmatovu/laravel-mtn-momo/src/Repositories/TokenRepository.php',
+        'Bmatovu\\MtnMomo\\Traits\\CommandUtilTrait' => __DIR__ . '/..' . '/bmatovu/laravel-mtn-momo/src/Traits/CommandUtilTrait.php',
+        'Bmatovu\\MtnMomo\\Traits\\TokenUtilTrait' => __DIR__ . '/..' . '/bmatovu/laravel-mtn-momo/src/Traits/TokenUtilTrait.php',
+        'Bmatovu\\OAuthNegotiator\\Exceptions\\TokenNotFoundException' => __DIR__ . '/..' . '/bmatovu/oauth-negotiator/src/Exceptions/TokenNotFoundException.php',
+        'Bmatovu\\OAuthNegotiator\\Exceptions\\TokenRequestException' => __DIR__ . '/..' . '/bmatovu/oauth-negotiator/src/Exceptions/TokenRequestException.php',
+        'Bmatovu\\OAuthNegotiator\\GrantTypes\\AuthorizationCode' => __DIR__ . '/..' . '/bmatovu/oauth-negotiator/src/GrantTypes/AuthorizationCode.php',
+        'Bmatovu\\OAuthNegotiator\\GrantTypes\\ClientCredentials' => __DIR__ . '/..' . '/bmatovu/oauth-negotiator/src/GrantTypes/ClientCredentials.php',
+        'Bmatovu\\OAuthNegotiator\\GrantTypes\\GrantTypeInterface' => __DIR__ . '/..' . '/bmatovu/oauth-negotiator/src/GrantTypes/GrantTypeInterface.php',
+        'Bmatovu\\OAuthNegotiator\\GrantTypes\\Password' => __DIR__ . '/..' . '/bmatovu/oauth-negotiator/src/GrantTypes/Password.php',
+        'Bmatovu\\OAuthNegotiator\\GrantTypes\\RefreshToken' => __DIR__ . '/..' . '/bmatovu/oauth-negotiator/src/GrantTypes/RefreshToken.php',
+        'Bmatovu\\OAuthNegotiator\\Models\\Token' => __DIR__ . '/..' . '/bmatovu/oauth-negotiator/src/Models/Token.php',
+        'Bmatovu\\OAuthNegotiator\\Models\\TokenInterface' => __DIR__ . '/..' . '/bmatovu/oauth-negotiator/src/Models/TokenInterface.php',
+        'Bmatovu\\OAuthNegotiator\\OAuth2Middleware' => __DIR__ . '/..' . '/bmatovu/oauth-negotiator/src/OAuth2Middleware.php',
+        'Bmatovu\\OAuthNegotiator\\Repositories\\FileTokenRepository' => __DIR__ . '/..' . '/bmatovu/oauth-negotiator/src/Repositories/FileTokenRepository.php',
+        'Bmatovu\\OAuthNegotiator\\Repositories\\TokenRepositoryInterface' => __DIR__ . '/..' . '/bmatovu/oauth-negotiator/src/Repositories/TokenRepositoryInterface.php',
         'Brick\\Math\\BigDecimal' => __DIR__ . '/..' . '/brick/math/src/BigDecimal.php',
         'Brick\\Math\\BigInteger' => __DIR__ . '/..' . '/brick/math/src/BigInteger.php',
         'Brick\\Math\\BigNumber' => __DIR__ . '/..' . '/brick/math/src/BigNumber.php',

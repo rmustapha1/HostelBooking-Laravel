@@ -94,5 +94,8 @@ return array(
     'Cron\\' => array($vendorDir . '/dragonmantank/cron-expression/src/Cron'),
     'Carbon\\' => array($vendorDir . '/nesbot/carbon/src/Carbon'),
     'Brick\\Math\\' => array($vendorDir . '/brick/math/src'),
+    'Bmatovu\\OAuthNegotiator\\' => array($vendorDir . '/bmatovu/oauth-negotiator/src'),
+    'Bmatovu\\MtnMomo\\Database\\Factories\\' => array($vendorDir . '/bmatovu/laravel-mtn-momo/database/factories'),
+    'Bmatovu\\MtnMomo\\' => array($vendorDir . '/bmatovu/laravel-mtn-momo/src'),
     'App\\' => array($baseDir . '/app', $vendorDir . '/laravel/pint/app'),
 );

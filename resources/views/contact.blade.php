@@ -13,7 +13,7 @@
                 <div class="card border-none rounded-md shadow-md">
                     <div class="card-body">
                         <h4 class="card-title text-base font-semibold leading-7"><i class="bi bi-geo-alt pr-2 text-4xl text-gray-300"></i> Address</h4>
-                        <p class="card-text">123 Main Street<br>Anytown, USA 12345</p>
+                        <p class="card-text">Tamale Technical University<br>Tamale, NR Ghana</p>
                     </div>
                 </div>
             </div>
@@ -21,7 +21,7 @@
                 <div class="card border-none rounded-md shadow-md">
                     <div class="card-body">
                         <h4 class="card-title text-base font-semibold leading-7"><i class="bi bi-telephone pr-2 text-4xl text-gray-300"></i> Phone</h4>
-                        <p class="card-text">(123) 456-7890</p>
+                        <p class="card-text">(054) 321-2796</p>
                     </div>
                 </div>
             </div>
@@ -29,7 +29,7 @@
                 <div class="card border-none rounded-md shadow-md">
                     <div class="card-body">
                         <h4 class="card-title text-base font-semibold leading-7"><i class="bi bi-envelope pr-2 text-4xl text-gray-300"></i> Email</h4>
-                        <p class="card-text">info@example.com</p>
+                        <p class="card-text">privatehostels21@gmail.com</p>
                     </div>
                 </div>
             </div>

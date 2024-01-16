@@ -45,7 +45,7 @@ Route::put('/users/{user_id}', [UserController::class, 'update'])->name('user.up
 Route::delete('/users/{user}', 'UserController@destroy');
 
 // Hostel Routes
-Route::get('/hostels', [HostelController::class, 'index'])->name('hostels.index');
+Route::get('/find-rooms', [HostelController::class, 'index'])->name('hostels.index');
 Route::get('/hostels/create', 'HostelController@create');
 Route::post('/hostels', 'HostelController@store');
 Route::get('/hostels/{hostel}', [HostelController::class, 'show'])->name('hostels.show');

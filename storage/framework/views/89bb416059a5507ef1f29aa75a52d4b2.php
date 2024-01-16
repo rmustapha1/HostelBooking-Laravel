@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Private Hostels Booking Dashboard</title>
+    <title>QellHub Register</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="<?php echo e(asset('vendors/mdi/css/materialdesignicons.min.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('vendors/base/vendor.bundle.base.css')); ?>">
@@ -34,9 +34,9 @@
 <body>
 
     <style>
-        * {
-            font-family: 'Space Grotesk', sans-serif;
-        }
+    * {
+        font-family: 'Space Grotesk', sans-serif;
+    }
     </style>
     <div class="container-scroller">
         <div class="container-fluid page-body-wrapper full-page-wrapper">
@@ -45,8 +45,7 @@
                     <div class="col-lg-6 d-flex align-items-center justify-content-center">
                         <div class="auth-form-transparent text-left p-3">
                             <div class="brand-logo logo">
-                                <img class="h-10 w-auto" src="<?php echo e(asset('images/logo.png')); ?>" alt="logo">
-                                <p>Private<span>Hostels</span></p>
+                                <img class="h-10 w-auto" src="<?php echo e(asset('images/quellhub_logo.png')); ?>" alt="logo">
                             </div>
                             <h4>New here?</h4>
                             <h6 class="font-weight-light">Join us today! It takes only few steps</h6>
@@ -60,7 +59,9 @@
                                                 <i class="mdi mdi-account-outline text-primary"></i>
                                             </span>
                                         </div>
-                                        <input id="fname" type="text" class="form-control form-control-lg border-left-0" name="fname" placeholder="Enter your firstname" required autocomplete="fname" autofocus>
+                                        <input id="fname" type="text" class="form-control form-control-lg border-left-0"
+                                            name="fname" placeholder="Enter your firstname" required
+                                            autocomplete="fname" autofocus>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -71,7 +72,10 @@
                                                 <i class="mdi mdi-account-outline text-primary"></i>
                                             </span>
                                         </div>
-                                        <input id="lname" type="text" class="form-control form-control-lg border-left-0" name="lname" placeholder="Enter your lastname" required autocomplete="lname" autofocus>
+                                        <input id="lname" type="text" class="form-control form-control-lg border-left-0"
+                                            name="lname" placeholder="Enter your lastname" required autocomplete="lname"
+                                            autofocus>
+                                        <input type="hidden" name="role" value="Student" />
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -82,14 +86,17 @@
                                                 <i class="mdi mdi-email-outline text-primary"></i>
                                             </span>
                                         </div>
-                                        <input id="email" type="email" class="form-control <?php $__errorArgs = ['email'];
+                                        <input id="email" type="email"
+                                            class="form-control <?php $__errorArgs = ['email'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?> form-control-lg border-left-0" placeholder="Enter your email" name="email" value="<?php echo e(old('email')); ?>" required autocomplete="email" autofocus>
+unset($__errorArgs, $__bag); ?> form-control-lg border-left-0"
+                                            placeholder="Enter your email" name="email" value="<?php echo e(old('email')); ?>"
+                                            required autocomplete="email" autofocus>
 
                                         <?php $__errorArgs = ['email'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -113,7 +120,9 @@ unset($__errorArgs, $__bag); ?>
                                                 <i class="mdi mdi-phone text-primary"></i>
                                             </span>
                                         </div>
-                                        <input id="phone" type="tel" class="form-control form-control-lg border-left-0" name="phone" placeholder="0000000000" required autocomplete="phone" autofocus>
+                                        <input id="phone" type="tel" class="form-control form-control-lg border-left-0"
+                                            name="phone" placeholder="0000000000" required autocomplete="phone"
+                                            autofocus>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -124,14 +133,17 @@ unset($__errorArgs, $__bag); ?>
                                                 <i class="mdi mdi-lock-outline text-primary"></i>
                                             </span>
                                         </div>
-                                        <input id="password" type="password" class="form-control <?php $__errorArgs = ['password'];
+                                        <input id="password" type="password"
+                                            class="form-control <?php $__errorArgs = ['password'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?> form-control-lg border-left-0" placeholder="Password" name="password" required autocomplete="current-password">
+unset($__errorArgs, $__bag); ?> form-control-lg border-left-0"
+                                            placeholder="Password" name="password" required
+                                            autocomplete="current-password">
 
                                         <?php $__errorArgs = ['password'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -155,7 +167,10 @@ unset($__errorArgs, $__bag); ?>
                                                 <i class="mdi mdi-lock-outline text-primary"></i>
                                             </span>
                                         </div>
-                                        <input id="password-confirm" type="password" class="form-control form-control-lg border-left-0" name="password_confirmation" required placeholder="Confirm Password" autocomplete="new-password">
+                                        <input id="password-confirm" type="password"
+                                            class="form-control form-control-lg border-left-0"
+                                            name="password_confirmation" required placeholder="Confirm Password"
+                                            autocomplete="new-password">
                                     </div>
                                 </div>
                                 <div class="mb-4">
@@ -167,11 +182,13 @@ unset($__errorArgs, $__bag); ?>
                                     </div>
                                 </div>
                                 <div class="mt-3">
-                                    <a type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">SIGN
-                                        UP</a>
+                                    <button type="submit"
+                                        class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">SIGN
+                                        UP</button>
                                 </div>
                                 <div class="text-center mt-4 font-weight-light">
-                                    Already have an account? <a href="<?php echo e(route('login')); ?>" class="text-primary">Login</a>
+                                    Already have an account? <a href="<?php echo e(route('login')); ?>"
+                                        class="text-primary">Login</a>
                                 </div>
                                 <div class="text-center mt-4 font-weight-light">
                                     Can't signup now? <a href="<?php echo e(route('home')); ?>" class="text-primary">Go

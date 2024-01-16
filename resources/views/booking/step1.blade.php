@@ -3,7 +3,7 @@
 @section('content')
 <div id="booking" class="container px-2 py-8 mt-20 items-center justify-center">
     <!-- Steps UI -->
-    <div class="flex items-center justify-center space-x-1 my-5 sm:overflow-x-hidden">
+    <div class="flex flex-col items-center justify-center space-y-5 my-5 sm:overflow-x-hidden">
 
         <div class="flex items-center justify-center space-x-1">
             <div
@@ -14,26 +14,30 @@
                 </svg>
             </div>
             <p class="text-gray-800 text-sm font-bold">Your Selection</p>
-            <div class="h-0.5 bg-gray-700 w-60 border-r-3 border-gray-400">
+            <div class="h-0.5 bg-gray-700 w-40 sm:w-60 border-r-3 border-gray-400">
             </div>
         </div>
+
         <div class="flex items-center justify-center space-x-1">
             <div
                 class="w-12 h-12 rounded-full bg-gray-200 border-2 border-blue-500 flex items-center justify-center text-gray-600 text-2xl font-bold">
-                2</div>
+                2
+            </div>
             <p class="text-gray-800 text-sm font-bold">Reserve Room</p>
-            <div class="h-0.5 bg-gray-700 w-60 border-r-3 border-gray-400">
+            <div class="h-0.5 bg-gray-700 w-40 sm:w-60 border-r-3 border-gray-400">
             </div>
-            <div class="flex items-center justify-center space-x-1">
-                <div
-                    class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 text-2xl font-bold">
-                    3</div>
-                <p class="text-gray-800 text-sm font-bold">Make Payment</p>
-            </div>
+        </div>
 
+        <div class="flex items-center justify-center space-x-1">
+            <div
+                class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 text-2xl font-bold">
+                3
+            </div>
+            <p class="text-gray-800 text-sm font-bold">Make Payment</p>
         </div>
 
     </div>
+
 
     <div class="container px-2">
         <div class="row -mx-4">
