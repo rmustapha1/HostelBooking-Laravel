@@ -80,7 +80,7 @@
 
 	  <div class="mt-3 flex items-end justify-between">
 		<p>
-		  <span class="text-lg font-bold text-orange-500">&#8373;{{$hostel->price_range}}</span>
+		  <span class="text-lg font-bold text-orange-500">&#8373;{{$hostel->price_range}}+</span>
 		  <span class="text-sm text-slate-400">/year</span>
 		</p>
 

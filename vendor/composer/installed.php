@@ -3,31 +3,13 @@
         'name' => 'laravel/laravel',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => 'b24ac7cc8be0910a7b3be48d925dc8bade02bbef',
+        'reference' => '624651483e7a6f68600ae1acc7b22aaf95b0dcba',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
-        'bmatovu/laravel-mtn-momo' => array(
-            'pretty_version' => 'v4.3.0',
-            'version' => '4.3.0.0',
-            'reference' => 'f6e262b1ecb210667fb7862abf1569464e1d9c1a',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../bmatovu/laravel-mtn-momo',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
-        'bmatovu/oauth-negotiator' => array(
-            'pretty_version' => 'v2.1.0',
-            'version' => '2.1.0.0',
-            'reference' => '54d2987312cfb9d86ccc1d0b97ac3c85b44bfebd',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../bmatovu/oauth-negotiator',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
         'brick/math' => array(
             'pretty_version' => '0.11.0',
             'version' => '0.11.0.0',
@@ -400,7 +382,7 @@
         'laravel/laravel' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'b24ac7cc8be0910a7b3be48d925dc8bade02bbef',
+            'reference' => '624651483e7a6f68600ae1acc7b22aaf95b0dcba',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -802,8 +784,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0|2.0|3.0',
-                1 => '3.0.0',
+                0 => '3.0.0',
+                1 => '1.0|2.0|3.0',
             ),
         ),
         'psr/simple-cache' => array(
