@@ -123,7 +123,7 @@ class Paystack
                 "first_name" => request()->first_name,
                 "last_name" => request()->last_name,
                 "callback_url" => request()->callback_url,
-                "currency" => (request()->currency != ""  ? request()->currency : "GHS"),
+                "currency" => (request()->currency != ""  ? request()->currency : "NGN"),
 
                 /*
                     Paystack allows for transactions to be split into a subaccount -

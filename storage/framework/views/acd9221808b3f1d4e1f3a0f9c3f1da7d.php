@@ -24,7 +24,7 @@
         <!-- Featured Image -->
         <div class="mx-auto px-3 py-3">
             <div class="sm:overflow-hidden rounded-lg sm:rounded-lg">
-                <img src="<?php echo e($hostel->img_url); ?>" alt="<?php echo e($hostel->name); ?>"
+                <img src="https://thumbnails.production.thenounproject.com/gA9eZOvsBYSHrMumgrslmRGoBto=/fit-in/1000x1000/photos.production.thenounproject.com/photos/BCBA88B6-5B41-4B50-A786-E60CAA0ECDA3.jpg" alt="<?php echo e($hostel->name); ?>"
                     class="h-full w-full object-cover object-center">
             </div>
         </div>
