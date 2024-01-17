@@ -228,7 +228,7 @@
         </div>
         <div id="reserve" class="mx-auto container">
             <h2 class="text-base font-semibold leading-7 text-blue-300">Available Rooms</h2>
-            <table class="table-auto w-full table-stripe table-primary border-separate border border-blue-800">
+            <table class="table table-responsive table-stripe table-primary border-separate border border-blue-800">
                 <thead class="bg-blue-500 text-white">
                     <tr>
                         <th class="border border-blue-600 px-4 py-2">Room Number</th>

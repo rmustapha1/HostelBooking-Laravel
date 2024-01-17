@@ -3,40 +3,132 @@
 @section('content')
 <div id="booking" class="container px-2 py-8 mt-20 items-center justify-center">
     <!-- Steps UI -->
-    <div class="flex flex-col items-center justify-center space-y-5 my-5 sm:overflow-x-hidden">
-
-        <div class="flex items-center justify-center space-x-1">
-            <div
-                class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white text-2xl font-bold">
-                <svg class="h-6 w-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path
-                        d="M9.707 18.707l10-10a1 1 0 0 0-1.414-1.414l-9.293 9.293l-3.293-3.293a1 1 0 1 0-1.414 1.414l4 4a1 1 0 0 0 1.414 0z" />
-                </svg>
-            </div>
-            <p class="text-gray-800 text-sm font-bold">Your Selection</p>
-            <div class="h-0.5 bg-gray-700 w-40 sm:w-60 border-r-3 border-gray-400">
-            </div>
+<div class="p-5">
+  <div class="mx-auto p-4">
+    <div class="flex items-center justify-center">
+      <div class="flex items-center text-white relative">
+        <div
+          class="
+            rounded-full
+            bg-blue-500
+            items-center text-white text-2xl font-bold
+            transition
+            duration-500
+            ease-in-out
+            h-12
+            w-12
+            py-3
+            border-2 border-blue-500
+          "
+        >
+        <p class="text-center">1</p>
         </div>
-
-        <div class="flex items-center justify-center space-x-1">
-            <div
-                class="w-12 h-12 rounded-full bg-gray-200 border-2 border-blue-500 flex items-center justify-center text-gray-600 text-2xl font-bold">
-                2
-            </div>
-            <p class="text-gray-800 text-sm font-bold">Reserve Room</p>
-            <div class="h-0.5 bg-gray-700 w-40 sm:w-60 border-r-3 border-gray-400">
-            </div>
+        <div
+          class="
+            absolute
+            top-0
+            -ml-10
+            text-center
+            mt-16
+            w-32
+            text-xs
+            font-medium
+            uppercase
+            text-blue-500
+          "
+        >
+          Your Selection
         </div>
-
-        <div class="flex items-center justify-center space-x-1">
-            <div
-                class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 text-2xl font-bold">
-                3
-            </div>
-            <p class="text-gray-800 text-sm font-bold">Make Payment</p>
+      </div>
+      <div
+        class="
+          flex-auto
+          border-t-2 
+          transition
+          duration-500
+          ease-in-out
+          border-blue-500
+        "
+      ></div>
+      <div class="flex items-center text-white relative">
+        <div
+          class="
+            rounded-full 
+            transition
+            duration-500
+            ease-in-out
+            h-12
+            w-12
+            py-3
+            border-2 text-2xl font-bold
+            border-blue-500
+            text-gray-500
+          "
+        >
+          <p class="text-center">2</p>
         </div>
-
+        <div
+          class="
+            absolute
+            top-0
+            -ml-10
+            text-center
+            mt-16
+            w-32
+            text-xs
+            font-medium
+            uppercase
+            text-blue-500
+          "
+        >
+          Reserve Room
+        </div>
+      </div>
+      <div
+        class="
+          flex-auto
+          border-t-2
+          transition
+          duration-500
+          ease-in-out
+          border-gray-300
+        "
+      ></div>
+      <div class="flex items-center text-gray-500 relative">
+        <div
+          class="
+            rounded-full
+            transition
+            duration-500
+            ease-in-out
+            h-12
+            w-12 text-2xl font-bold
+            py-3
+            border-2 border-gray-300
+          "
+        >
+          <p class="text-center">3</p>
+        </div>
+        <div
+          class="
+            absolute
+            top-0
+            -ml-10
+            text-center
+            mt-16
+            w-32
+            text-xs
+            font-medium
+            uppercase
+            text-gray-500
+          "
+        >
+          Make Payment
+        </div>
+      </div>
     </div>
+  </div>
+</div>
 
 
     <div class="container px-2">
