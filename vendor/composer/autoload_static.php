@@ -20,15 +20,17 @@ class ComposerStaticInit9558104667d3d8a98573236ac2610bd2
         '662a729f963d39afe703c9d9b7ab4a8c' => __DIR__ . '/..' . '/symfony/polyfill-php83/bootstrap.php',
         'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
+        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '3bd81c9b8fcc150b69d8b63b4d2ccf23' => __DIR__ . '/..' . '/spatie/flare-client-php/src/helpers.php',
         '35a6ad97d21e794e7e22a17d806652e4' => __DIR__ . '/..' . '/nunomaduro/termwind/src/Functions.php',
+        'e39a8b23c42d4e1452234d762b03835a' => __DIR__ . '/..' . '/ramsey/uuid/src/functions.php',
         '09f6b20656683369174dd6fa83b7e5fb' => __DIR__ . '/..' . '/symfony/polyfill-uuid/bootstrap.php',
-        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
+        '131fa9341c01afda751232ac8f8030f8' => __DIR__ . '/..' . '/bmatovu/oauth-negotiator/src/Support/helpers.php',
         '47e1160838b5e5a10346ac4084b58c23' => __DIR__ . '/..' . '/laravel/prompts/src/helpers.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         'da91a01b5badbe5394c83814ef5982ea' => __DIR__ . '/..' . '/php-flasher/flasher/helpers.php',
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
-        'e39a8b23c42d4e1452234d762b03835a' => __DIR__ . '/..' . '/ramsey/uuid/src/functions.php',
+        'd96b83ff5828c258682b1691cb8fc4ae' => __DIR__ . '/..' . '/bmatovu/laravel-mtn-momo/src/Support/helpers.php',
         '265b4faa2b3a9766332744949e83bf97' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Collections/helpers.php',
         'c7a3c339e7e14b60e06a2d7fcce9476b' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Events/functions.php',
         'f57d353b41eb2e234b26064d63d8c5dd' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Filesystem/functions.php',
@@ -183,6 +185,9 @@ class ComposerStaticInit9558104667d3d8a98573236ac2610bd2
         'B' => 
         array (
             'Brick\\Math\\' => 11,
+            'Bmatovu\\OAuthNegotiator\\' => 24,
+            'Bmatovu\\MtnMomo\\Database\\Factories\\' => 35,
+            'Bmatovu\\MtnMomo\\' => 16,
         ),
         'A' => 
         array (
@@ -369,8 +374,8 @@ class ComposerStaticInit9558104667d3d8a98573236ac2610bd2
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -552,6 +557,18 @@ class ComposerStaticInit9558104667d3d8a98573236ac2610bd2
         array (
             0 => __DIR__ . '/..' . '/brick/math/src',
         ),
+        'Bmatovu\\OAuthNegotiator\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/bmatovu/oauth-negotiator/src',
+        ),
+        'Bmatovu\\MtnMomo\\Database\\Factories\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/bmatovu/laravel-mtn-momo/database/factories',
+        ),
+        'Bmatovu\\MtnMomo\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/bmatovu/laravel-mtn-momo/src',
+        ),
         'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
@@ -609,6 +626,36 @@ class ComposerStaticInit9558104667d3d8a98573236ac2610bd2
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\Providers\\SchoolComposerServiceProvider' => __DIR__ . '/../..' . '/app/Providers/SchoolComposerServiceProvider.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
+        'Bmatovu\\MtnMomo\\Console\\BootstrapCommand' => __DIR__ . '/..' . '/bmatovu/laravel-mtn-momo/src/Console/BootstrapCommand.php',
+        'Bmatovu\\MtnMomo\\Console\\RegisterIdCommand' => __DIR__ . '/..' . '/bmatovu/laravel-mtn-momo/src/Console/RegisterIdCommand.php',
+        'Bmatovu\\MtnMomo\\Console\\RequestSecretCommand' => __DIR__ . '/..' . '/bmatovu/laravel-mtn-momo/src/Console/RequestSecretCommand.php',
+        'Bmatovu\\MtnMomo\\Console\\ValidateIdCommand' => __DIR__ . '/..' . '/bmatovu/laravel-mtn-momo/src/Console/ValidateIdCommand.php',
+        'Bmatovu\\MtnMomo\\Database\\Factories\\TokenFactory' => __DIR__ . '/..' . '/bmatovu/laravel-mtn-momo/database/factories/TokenFactory.php',
+        'Bmatovu\\MtnMomo\\Exceptions\\CollectionRequestException' => __DIR__ . '/..' . '/bmatovu/laravel-mtn-momo/src/Exceptions/CollectionRequestException.php',
+        'Bmatovu\\MtnMomo\\Exceptions\\DisbursementRequestException' => __DIR__ . '/..' . '/bmatovu/laravel-mtn-momo/src/Exceptions/DisbursementRequestException.php',
+        'Bmatovu\\MtnMomo\\Exceptions\\MtnMomoRequestException' => __DIR__ . '/..' . '/bmatovu/laravel-mtn-momo/src/Exceptions/MtnMomoRequestException.php',
+        'Bmatovu\\MtnMomo\\Exceptions\\RemittanceRequestException' => __DIR__ . '/..' . '/bmatovu/laravel-mtn-momo/src/Exceptions/RemittanceRequestException.php',
+        'Bmatovu\\MtnMomo\\Models\\Token' => __DIR__ . '/..' . '/bmatovu/laravel-mtn-momo/src/Models/Token.php',
+        'Bmatovu\\MtnMomo\\MtnMomoServiceProvider' => __DIR__ . '/..' . '/bmatovu/laravel-mtn-momo/src/MtnMomoServiceProvider.php',
+        'Bmatovu\\MtnMomo\\Products\\Collection' => __DIR__ . '/..' . '/bmatovu/laravel-mtn-momo/src/Products/Collection.php',
+        'Bmatovu\\MtnMomo\\Products\\Disbursement' => __DIR__ . '/..' . '/bmatovu/laravel-mtn-momo/src/Products/Disbursement.php',
+        'Bmatovu\\MtnMomo\\Products\\Product' => __DIR__ . '/..' . '/bmatovu/laravel-mtn-momo/src/Products/Product.php',
+        'Bmatovu\\MtnMomo\\Products\\Remittance' => __DIR__ . '/..' . '/bmatovu/laravel-mtn-momo/src/Products/Remittance.php',
+        'Bmatovu\\MtnMomo\\Repositories\\TokenRepository' => __DIR__ . '/..' . '/bmatovu/laravel-mtn-momo/src/Repositories/TokenRepository.php',
+        'Bmatovu\\MtnMomo\\Traits\\CommandUtilTrait' => __DIR__ . '/..' . '/bmatovu/laravel-mtn-momo/src/Traits/CommandUtilTrait.php',
+        'Bmatovu\\MtnMomo\\Traits\\TokenUtilTrait' => __DIR__ . '/..' . '/bmatovu/laravel-mtn-momo/src/Traits/TokenUtilTrait.php',
+        'Bmatovu\\OAuthNegotiator\\Exceptions\\TokenNotFoundException' => __DIR__ . '/..' . '/bmatovu/oauth-negotiator/src/Exceptions/TokenNotFoundException.php',
+        'Bmatovu\\OAuthNegotiator\\Exceptions\\TokenRequestException' => __DIR__ . '/..' . '/bmatovu/oauth-negotiator/src/Exceptions/TokenRequestException.php',
+        'Bmatovu\\OAuthNegotiator\\GrantTypes\\AuthorizationCode' => __DIR__ . '/..' . '/bmatovu/oauth-negotiator/src/GrantTypes/AuthorizationCode.php',
+        'Bmatovu\\OAuthNegotiator\\GrantTypes\\ClientCredentials' => __DIR__ . '/..' . '/bmatovu/oauth-negotiator/src/GrantTypes/ClientCredentials.php',
+        'Bmatovu\\OAuthNegotiator\\GrantTypes\\GrantTypeInterface' => __DIR__ . '/..' . '/bmatovu/oauth-negotiator/src/GrantTypes/GrantTypeInterface.php',
+        'Bmatovu\\OAuthNegotiator\\GrantTypes\\Password' => __DIR__ . '/..' . '/bmatovu/oauth-negotiator/src/GrantTypes/Password.php',
+        'Bmatovu\\OAuthNegotiator\\GrantTypes\\RefreshToken' => __DIR__ . '/..' . '/bmatovu/oauth-negotiator/src/GrantTypes/RefreshToken.php',
+        'Bmatovu\\OAuthNegotiator\\Models\\Token' => __DIR__ . '/..' . '/bmatovu/oauth-negotiator/src/Models/Token.php',
+        'Bmatovu\\OAuthNegotiator\\Models\\TokenInterface' => __DIR__ . '/..' . '/bmatovu/oauth-negotiator/src/Models/TokenInterface.php',
+        'Bmatovu\\OAuthNegotiator\\OAuth2Middleware' => __DIR__ . '/..' . '/bmatovu/oauth-negotiator/src/OAuth2Middleware.php',
+        'Bmatovu\\OAuthNegotiator\\Repositories\\FileTokenRepository' => __DIR__ . '/..' . '/bmatovu/oauth-negotiator/src/Repositories/FileTokenRepository.php',
+        'Bmatovu\\OAuthNegotiator\\Repositories\\TokenRepositoryInterface' => __DIR__ . '/..' . '/bmatovu/oauth-negotiator/src/Repositories/TokenRepositoryInterface.php',
         'Brick\\Math\\BigDecimal' => __DIR__ . '/..' . '/brick/math/src/BigDecimal.php',
         'Brick\\Math\\BigInteger' => __DIR__ . '/..' . '/brick/math/src/BigInteger.php',
         'Brick\\Math\\BigNumber' => __DIR__ . '/..' . '/brick/math/src/BigNumber.php',

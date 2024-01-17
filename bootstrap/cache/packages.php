@@ -1,4 +1,11 @@
 <?php return array (
+  'bmatovu/laravel-mtn-momo' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Bmatovu\\MtnMomo\\MtnMomoServiceProvider',
+    ),
+  ),
   'laravel/sail' => 
   array (
     'providers' => 
