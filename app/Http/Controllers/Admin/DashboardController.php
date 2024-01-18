@@ -102,7 +102,7 @@ class DashboardController extends Controller
     public function editHostel($id)
     {
         // Logic to display the form for editing a hostel
-        // Example: $hostel = Hostel::find($id);
+         $hostel = Hostel::find($id);
         return view('admin.hostels.edit', compact('hostel'));
     }
 
@@ -116,7 +116,65 @@ class DashboardController extends Controller
     public function deleteHostel($id)
     {
         // Logic to delete a hostel
-        // Example: Hostel::destroy($id);
+         Hostel::destroy($id);
         return redirect()->route('admin.hostels.index')->with('success', 'Hostel deleted successfully!');
+    }
+
+
+    // Users
+
+    public function manageUsers()
+    {
+        $users = User::all();
+    
+        $userData = $users->map(function ($user) {
+           
+            return [
+                'id' => $user->id,
+                'name' => $user->fname.' '. $user->lname,
+                'email' => $user->email,
+                'phone' => $user->phone,
+                'role' => $user->role,
+                'profile' => $user->profile_photo_url,
+                // Add other fields as needed
+            ];
+        });
+    
+        // Pass the $userData to the view
+        return view('admin.users.index', ['userData' => $userData]);
+    }
+
+    public function createUser()
+    {
+        // Logic to display the form for creating a new user
+        return view('admin.users.create');
+    }
+
+    public function storeUser(Request $request)
+    {
+        // Logic to store a new user
+         User::create($request->all());
+        return redirect()->route('admin.users.index')->with('success', 'User created successfully!');
+    }
+
+    public function editUser($id)
+    {
+        // Logic to display the form for editing a user
+         $user = User::find($id);
+        return view('admin.users.edit', compact('user'));
+    }
+
+    public function updateUser(Request $request, $id)
+    {
+        // Logic to update a user
+        // Example: User::find($id)->update($request->all());
+        return redirect()->route('admin.users.index')->with('success', 'User updated successfully!');
+    }
+
+    public function deleteUser($id)
+    {
+        // Logic to delete a user
+         Hostel::destroy($id);
+        return redirect()->route('admin.users.index')->with('success', 'User deleted successfully!');
     }
 }

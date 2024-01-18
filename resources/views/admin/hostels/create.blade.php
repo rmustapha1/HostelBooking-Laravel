@@ -7,7 +7,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header d-flex align-items-center">
-                        <h4>{{trans('Add Hostel')}}</h4>
+                        <h4>{{trans('Add Property')}}</h4>
                     </div>
                     <div class="card-body">
                         <p class="italic">
@@ -15,10 +15,10 @@
                         </p>
                         <form id="product-form">
                             <div class="row">
-                                <h5 class="my-3 text-gray-600 font-semibold leading-7">Primary Hostel Info</h5>
+                                <h5 class="my-3 text-gray-600 font-semibold leading-7">Primary Property Info</h5>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="mb-1 text-muted">{{trans('Hostel Type')}} *</strong> </label>
+                                        <label class="mb-1 text-muted">{{trans('Property Type')}} *</strong> </label>
                                         <div class="input-group">
                                             <select name="type" required
                                                 class="form-control border-2 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -32,7 +32,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="mb-1 text-muted">{{trans('Hostel Name')}} *</strong> </label>
+                                        <label class="mb-1 text-muted">{{trans('Property Name')}} *</strong> </label>
                                         <input type="text" name="name"
                                             class="form-control border-2 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                             id="name" aria-describedby="name" required>
@@ -40,7 +40,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="mb-1 text-muted">{{trans('Hostel Code')}} *</strong> </label>
+                                        <label class="mb-1 text-muted">{{trans('Property Code')}} *</strong> </label>
                                         <div class="input-group">
                                             <input type="text" name="code"
                                                 class="form-control border-2 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -56,7 +56,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="mb-1 text-muted">{{trans('University / School')}} *</strong>
+                                        <label class="mb-1 text-muted">{{trans('University / Category')}} *</strong>
                                         </label>
                                         <div class="input-group">
                                             <select name="barcode_symbology" required
@@ -117,70 +117,19 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div id="cost" class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="mb-1 text-muted">{{trans('Product Cost')}} *</strong> </label>
-                                        <input type="number" name="cost" required
-                                            class="form-control border-2 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                            step="any">
-                                        <span class="validation-msg"></span>
-                                    </div>
-                                </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="mb-1 text-muted">{{trans('Product Price')}} *</strong> </label>
+                                        <label class="mb-1 text-muted">{{trans('Property Avg. Price')}} *</strong> </label>
                                         <input type="number" name="price" required
                                             class="form-control border-2 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                             step="any">
                                         <span class="validation-msg"></span>
                                     </div>
-                                    <div class="form-group">
-                                        <input type="hidden" name="qty" value="0.00">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label
-                                            class="mb-1 text-muted">{{trans('Daily Sale Objective')}}</strong></label>
-                                        <i class="dripicons-question" data-toggle="tooltip"
-                                            title="{{trans('Minimum qty which must be sold in a day. If not, you will be notified on dashboard. But you have to set up the cron job properly for that. Follow the documentation in that regard.')}}"></i>
-                                        <input type="number" name="daily_sale_objective"
-                                            class="form-control border-2 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                            step="any">
-                                    </div>
-                                </div>
-                                <div id="alert-qty" class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="mb-1 text-muted">{{trans('Alert Quantity')}}</strong> </label>
-                                        <input type="number" name="alert_quantity"
-                                            class="form-control border-2 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                            step="any">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="mb-1 text-muted">{{trans('Product Tax')}}</strong> </label>
-                                        <select name="tax_id"
-                                            class="form-control border-2 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 selectpicker">
-                                            <option value="">No Tax</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="mb-1 text-muted">{{trans('Tax Method')}}</strong> </label> <i
-                                            class="dripicons-question" data-toggle="tooltip"
-                                            title="{{trans('Exclusive: Poduct price = Actual product price + Tax. Inclusive: Actual product price = Product price - Tax')}}"></i>
-                                        <select name="tax_method"
-                                            class="form-control border-2 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 selectpicker">
-                                            <option value="1">{{trans('Exclusive')}}</option>
-                                            <option value="2">{{trans('Inclusive')}}</option>
-                                        </select>
-                                    </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="button" value="{{trans('submit')}}" id="submit-btn"
-                                        class="btn btn-primary">
+                                    <button type="submit"  id="submit-btn"
+                                        class="btn btn-primary">Submit
+                                    </button>
                                 </div>
                             </div>
                         </form>

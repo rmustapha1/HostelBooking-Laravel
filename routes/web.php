@@ -96,10 +96,19 @@ Route::delete('/schools/{school}', 'SchoolController@destroy');
 //Dashboard 
 Route::group(['middleware' => ['auth', AdminMiddleware::class]], function () {
     Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+    // Hostels
     Route::get('/hostels', [DashboardController::class, 'manageHostels'])->name('hostels');
     Route::get('/admin/hostels/create', [DashboardController::class, 'createHostel'])->name('admin.hostels.create');
     Route::post('/admin/hostels', [DashboardController::class, 'storeHostel'])->name('admin.hostels.store');
     Route::get('/admin/hostels/{id}/edit', [DashboardController::class, 'editHostel'])->name('admin.hostels.edit');
     Route::put('/admin/hostels/{id}', [DashboardController::class, 'updateHostel'])->name('admin.hostels.show');
     Route::delete('/admin/hostels/{id}', [DashboardController::class, 'deleteHostel'])->name('admin.hostels.destroy');
+
+    // Users
+    Route::get('/users', [DashboardController::class, 'manageUsers'])->name('users');
+    Route::get('/admin/users/create', [DashboardController::class, 'createUser'])->name('admin.users.create');
+    Route::post('/admin/users', [DashboardController::class, 'storeUser'])->name('admin.users.store');
+    Route::get('/admin/users/{id}/edit', [DashboardController::class, 'editUser'])->name('admin.users.edit');
+    Route::put('/admin/users/{id}', [DashboardController::class, 'updateUser'])->name('admin.users.show');
+    Route::delete('/admin/users/{id}', [DashboardController::class, 'deleteUser'])->name('admin.users.destroy');
 });

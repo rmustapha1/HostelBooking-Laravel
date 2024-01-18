@@ -50,16 +50,16 @@
                                     class="d-none d-xl-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">
                                     <i class="mdi mdi-calendar-heart icon-lg me-3 text-primary"></i>
                                     <div class="d-flex flex-column justify-content-around">
-                                        <small class="mb-1 text-muted">Start date</small>
+                                        <small class="mb-1 text-muted">Date</small>
                                         <div class="dropdown">
                                             <a class="btn btn-secondary dropdown-toggle p-0 bg-transparent border-0 text-dark shadow-none font-weight-medium"
                                                 href="#" role="button" id="dropdownMenuLinkA" data-bs-toggle="dropdown"
                                                 aria-haspopup="true" aria-expanded="false">
-                                                <h5 class="mb-0 d-inline-block">26 Jul 2018</h5>
+                                                @php
+                                                $date = date("Y-m-d");
+                                                @endphp
+                                                <h5 class="mb-0 d-inline-block">{{$date}}</h5>
                                             </a>
-                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLinkA">
-                                                <a class="dropdown-item" href="#">12 Aug 2018</a>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>

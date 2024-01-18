@@ -151,26 +151,35 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false"
-                            aria-controls="ui-basic">
+                        <a class="nav-link" data-bs-toggle="collapse" href="#hostel" aria-expanded="false"
+                            aria-controls="hostel">
                             <i class="mdi mdi-circle-outline menu-icon"></i>
-                            <span class="menu-title">Hostels</span>
+                            <span class="menu-title">Properties</span>
                             <i class="menu-arrow"></i>
                         </a>
-                        <div class="collapse" id="ui-basic">
+                        <div class="collapse" id="hostel">
                             <ul class="nav flex-column sub-menu">
                                 <li class="nav-item"> <a class="nav-link" href="{{route('admin.hostels.create')}}">Add
-                                        Hostel</a></li>
-                                <li class="nav-item"> <a class="nav-link" href="{{route('hostels')}}">Hostel
+                                        Property</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="{{route('hostels')}}">Property
                                         List</a></li>
                             </ul>
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" data-bs-toggle="collapse" href="#user" aria-expanded="false"
+                            aria-controls="user">
                             <i class="mdi mdi-account-multiple-outline menu-icon"></i>
-                            <span class="menu-title">Students</span>
+                            <span class="menu-title">Users</span>
                         </a>
+                        <div class="collapse" id="user">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" href="{{route('admin.users.create')}}">Create
+                                        User</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="{{route('users')}}">User
+                                        List</a></li>
+                            </ul>
+                        </div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">
@@ -187,7 +196,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">
                             <i class="mdi mdi-emoticon menu-icon"></i>
-                            <span class="menu-title">Subscription</span>
+                            <span class="menu-title">Subscriptions</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -199,12 +208,10 @@
                         </a>
                         <div class="collapse" id="auth">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="pages/samples/login-2.html"> Login </a>
+                                <li class="nav-item"> <a class="nav-link" href="#"> Manage Rooms </a>
                                 </li>
-                                <li class="nav-item"> <a class="nav-link" href="pages/samples/register-2.html"> Register
+                                <li class="nav-item"> <a class="nav-link" href="#"> Add Rooms
                                     </a></li>
-                                <li class="nav-item"> <a class="nav-link" href="pages/samples/lock-screen.html">
-                                        Lockscreen </a></li>
                             </ul>
                         </div>
                     </li>
@@ -256,6 +263,10 @@
      <script>
         $(document).ready( function () {
             $('#hostelTable').DataTable();
+        });
+
+        $(document).ready( function () {
+            $('#userTable').DataTable();
         });
     </script>
 
