@@ -227,7 +227,8 @@
         </div>
         <div id="reserve" class="mx-auto container">
             <h2 class="text-base font-semibold leading-7 text-blue-300">Available Rooms</h2>
-            <table class="table-auto w-full table-stripe table-primary border-separate border border-blue-800">
+            <div class="overflow-x-auto overflow-y-auto max-w-full max-h-screen p-4">
+            <table class="table-auto min-w-full table-stripe table-primary border-separate border border-blue-800">
                 <thead class="bg-blue-500 text-white">
                     <tr>
                         <th class="border border-blue-600 px-4 py-2">Room Number</th>
@@ -255,6 +256,8 @@
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </tbody>
             </table>
+            </div>
+            
         </div>
     </div>
 </div>

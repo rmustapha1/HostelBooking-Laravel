@@ -1,225 +1,134 @@
-@extends('layouts.admin') @section('content')
-@if(session()->has('create_message'))
-<div class="alert alert-success alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert"
-        aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ session()->get('create_message') }}</div>
-@endif
-@if(session()->has('edit_message'))
-<div class="alert alert-success alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert"
-        aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ session()->get('edit_message') }}</div>
-@endif
-@if(session()->has('import_message'))
-<div class="alert alert-success alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert"
-        aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ session()->get('import_message') }}</div>
-@endif
-@if(session()->has('not_permitted'))
-<div class="alert alert-danger alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert"
-        aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ session()->get('not_permitted') }}</div>
-@endif
-@if(session()->has('message'))
-<div class="alert alert-danger alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert"
-        aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ session()->get('message') }}</div>
-@endif
+
+@extends('layouts.admin') 
+@section('content')
+
 
 <section class="content-wrapper">
     <div class="container-fluid">
         <a href="{{route('admin.hostels.create')}}" class="btn btn-info"><i class="mdi mdi-plus"></i>
             {{__('Add Hostel')}}</a>
-        <a href="#" data-toggle="modal" data-target="#importProduct" class="btn btn-primary"><i
-                class="mdi mdi-copy"></i> {{__('Import_product')}}</a>
     </div>
     <div class="row mt-5">
-        <div class="col-md-12 stretch-card">
+    <div class="col-md-12 stretch-card">
             <div class="card">
-                <div class="card-header">
-                    <p class="text-primary">Hostel List</p>
-                </div>
                 <div class="card-body">
-
+                    <p class="card-title">Hostel List</p>
                     <div class="table-responsive">
-                        <table id="hostel-listing" class="table" style="width: 100%;">
+                        <table id="hostelTable" class="table">
                             <thead>
                                 <tr>
-                                    <th>SL</th>
-                                    <th>Name</th>
-                                    <th>School</th>
-                                    <th>Owner</th>
-                                    <th>Subscription</th>
-                                    <th>Status</th>
-                                    <th>Actions</th>
+                                <th>ID</th>
+                    <th>Name</th>
+                    <th>Location</th>
+                    <th>School</th>
+                    <th>Status</th>
+                    <th>Capacity</th>
+                    <th>Owner Name</th>
+                    <th>Subscription Start Date</th>
+                    <th>Subscription End Date</th>
+                    <th>Actions</th>
                                 </tr>
                             </thead>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="importProduct" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
-        class="modal fade text-left">
-        <div role="document" class="modal-dialog">
-            <div class="modal-content p-5">
-                <form>
-                    <div class="modal-header">
-                        <h5 id="exampleModalLabel" class="modal-title">Import Hostel</h5>
-                        <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span
-                                aria-hidden="true"><i class="mdi mdi-cross"></i></span></button>
-                    </div>
-                    <div class="modal-body">
-                        <p class="italic">
-                            <small>{{trans('The field labels marked with * are required input fields')}}.</small>
-                        </p>
-                        <p>{{trans('The correct column order is')}} (image, name*, code*, type*, brand, category*,
-                            unit_code*, cost*, price*, product_details, variant_name, item_code, additional_price)
-                            {{trans('and you must follow this')}}.
-                        </p>
-                        <p>{{trans('To display Image it must be stored in')}} public/images/product
-                            {{trans('directory')}}. {{trans('Image name must be same as product name')}}
-                        </p>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>{{trans('Upload CSV File')}} *</label>
-                                    <input type="file" class="form-control required" />
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label> {{trans('Sample File')}}</label>
-                                    <a href="public/sample_file/sample_products.csv"
-                                        class="btn btn-info btn-block btn-md"><i class="mdi mdi-download"></i>
-                                        {{trans('Download')}}</a>
-                                </div>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary p-4">Submit</button>
-                    </div>
-                </form </div>
-            </div>
-        </div>
-
-        <div id="hostel-details" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
-            class="modal fade text-left">
-            <div role="document" class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 id="exampleModalLabel" class="modal-title">{{trans('Hostel Details')}}</h5>
-                        <button id="print-btn" type="button" class="btn btn-default btn-sm ml-3"><i
-                                class="mdi mdi-print"></i>
-                            {{trans('Print')}}</button>
-                        <button type="button" id="close-btn" data-dismiss="modal" aria-label="Close" class="close"><span
-                                aria-hidden="true"><i class="mdi mdi-cross"></i></span></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-5" id="slider-content"></div>
-                            <div class="col-md-5 offset-1" id="product-content"></div>
-                            <div class="col-md-12 mt-2" id="product-warehouse-section">
-                                <h5>{{trans('Warehouse Quantity')}}</h5>
-                                <table class="table table-bordered table-hover product-warehouse-list">
-                                    <thead>
-                                    </thead>
-                                    <tbody>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="col-md-7 mt-2" id="product-variant-section">
-                                <h5>{{trans('Product Variant Information')}}</h5>
-                                <table class="table table-bordered table-hover product-variant-list">
-                                    <thead>
-                                    </thead>
-                                    <tbody>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="col-md-5 mt-2" id="product-variant-warehouse-section">
-                                <h5>{{trans('Warehouse quantity of product variants')}}</h5>
-                                <table class="table table-bordered table-hover product-variant-warehouse-list">
-                                    <thead>
-                                    </thead>
-                                    <tbody>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                        <h5 id="combo-header"></h5>
-                        <table class="table table-bordered table-hover item-list">
-                            <thead>
-                            </thead>
                             <tbody>
+                            @if($hostelData->isEmpty())
+        <p>No hostels available.</p>
+    @else
+    @foreach($hostelData as $hostel)
+                    <tr>
+                        <td>{{ $hostel['id'] }}</td>
+                        <td>{{ $hostel['name'] }}</td>
+                        <td>{{ $hostel['location'] }}</td>
+                        <td>{{ $hostel['school'] }}</td>
+                        <td>{{ $hostel['status'] }}</td>
+                        <td>{{ $hostel['capacity'] }}</td>
+                        <td>{{ $hostel['owner_name'] }}</td>
+                        <td>{{ $hostel['subscription_start_date'] }}</td>
+                        <td>{{ $hostel['subscription_end_date'] }}</td>
+                        <td class="flex items-center justify-center space-x-2">
+                            <div class="h-6 w-6 items-center rounded bg-gray-300">
+                            <a href="{{ route('admin.hostels.edit', ['id' => $hostel['id']]) }}" class="items-center text-center" title="Edit"><i class="mdi mdi-border-color text-blue-500 text-lg"></i></a>
+                            </div>
+                            <div class="h-6 w-6 items-center rounded bg-gray-300">
+                            <a href="#" onclick="openEditHostelModal('{{ $hostel['id'] }}')" class="items-center text-center" title="View"><i class="mdi mdi-eye text-lg text-gray-500 text-center"></i></a>
+                            </div>
+                            <div class="h-6 w-6 items-center rounded bg-gray-300">
+                            <a href="{{ route('admin.hostels.destroy', ['id' => $hostel['id']]) }}" class="items-center text-center" title="Delete" onclick="return confirm('Are you sure you want to delete this hostel?')"><i class="mdi mdi-delete text-red-500 text-lg"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+                @endforeach
+                @endif
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
+    <!-- Edit Hostel Modal -->
+<div id="editHostelModal" class="fixed inset-0 overflow-y-auto hidden">
+<div class="flex items-center justify-center min-h-1/2 pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+        <!-- Background overlay -->
+        <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+            <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+        </div>
 
+        <!-- Modal Content -->
+        <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+        <div class="inline-block align-middle bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-4xl sm:w-full">
+            <!-- Modal Header -->
+            <div class="bg-blue-300 px-4 py-3 sm:px-6">
+                <h3 class="text-lg font-medium leading-6 text-white">
+                    Edit Hostel
+                </h3>
+            </div>
 
-</section>
+            <!-- Modal Body -->
+            <div class="p-6">
+                <!-- Add your form elements for editing hostel details here -->
+                <!-- For example, you might have input fields for name, location, capacity, etc. -->
+                <<form>
+                    <input type="text" name="name" value="vdvdv">
+                </form>
+
+                <!-- Save and Cancel Buttons -->
+                <div class="mt-4 flex justify-end">
+                    <button class="bg-blue-300 text-white py-2 px-4 rounded mr-2">Save Changes</button>
+                    <button id="closeEditHostelModal" class="text-gray-600 hover:text-gray-800 py-2 px-4 rounded">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </section>
 
 
 @endsection
-@push('scripts')
+
+<!-- JavaScript to Handle Modal Toggle -->
 <script>
-function confirmDelete() {
-    if (confirm("Are you sure want to delete?")) {
-        return true;
+    // Function to open the modal and load data
+    function openEditHostelModal(hostelId) {
+        // Fetch hostel data based on hostelId (you might need an AJAX request here)
+        // For simplicity, let's assume you have the hostel data in a variable called hostelData
+
+        // Update modal content with hostel data (modify as needed)
+        // document.getElementById('hostelNameInput').value = hostelData.name;
+        // document.getElementById('hostelLocationInput').value = hostelData.location;
+        // ...
+
+        // Show the modal
+        const editHostelModal = document.getElementById('editHostelModal');
+        editHostelModal.classList.remove('hidden');
+        editHostelModal.classList.add('flex');
     }
-    return false;
-}
 
-
-
-// Fetch hostel data from the backend
-$(document).ready(function() {
-    $.ajax({
-        url: '/admin/hostels',
-        type: 'GET',
-        success: function(data) {
-            // Populate the DataTable with hostel data
-            $('#hostel-listing').DataTable({
-                data: data,
-                columns: [{
-                        data: 'id'
-                    },
-                    {
-                        data: 'name'
-                    },
-                    {
-                        data: 'school'
-                    },
-                    {
-                        data: 'owner_name'
-                    },
-                    {
-                        data: 'subscription_start_date'
-                    },
-                    {
-                        data: 'status'
-                    },
-                    {
-                        data: 'actions'
-                    },
-                ]
-            });
-        }
-    });
-});
-
-
-$("#print-btn").on("click", function() {
-    var divToPrint = document.getElementById('product-details');
-    var newWin = window.open('', 'Print-Window');
-    newWin.document.open();
-    newWin.document.write(
-        '<link rel="stylesheet" href="<?php echo asset('vendor/bootstrap/css/bootstrap.min.css') ?>" type="text/css"><style type="text/css">@media print {.modal-dialog { max-width: 1000px;} }</style><body onload="window.print()">' +
-        divToPrint.innerHTML + '</body>');
-    newWin.document.close();
-    setTimeout(function() {
-        newWin.close();
-    }, 10);
-});
+    // Function to close the modal
+    function closeEditHostelModal() {
+        const editHostelModal = document.getElementById('editHostelModal');
+        editHostelModal.classList.add('hidden');
+        editHostelModal.classList.remove('flex');
+    }
 </script>
-@endpush

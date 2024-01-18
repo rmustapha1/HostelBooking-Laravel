@@ -23,47 +23,68 @@ class DashboardController extends Controller
         $managersCount = User::where('role', 'Hostel Manager')->count();
         $revenue = Payment::sum('amount');
 
+        $bookings= Booking::with(['user', 'room'])->get();
+        $bookingData = $bookings->map(function($booking){
+            $id = $booking->room->hostel_id;
+
+            $hostel = Hostel::find($id);
+
+            return[
+                'id' => $booking->id,
+                'date' => $booking->created_at,
+                'name' => $booking->user->fname.' '.$booking->user->lname,
+                'hostel' => $hostel->name,
+                'room_no' => $booking->room->room_no,
+                'price' => $booking->room->price_per_year,
+                'status' => $booking->status,
+
+            ];
+
+        });
+
+
         // Display the admin dashboard
-        return view('admin.dashboard', compact('hostelsCount', 'roomsCount', 'bookingsCount', 'paymentsCount', 'studentsCount', 'managersCount', 'revenue'));
+        return view('admin.dashboard', compact('hostelsCount', 'roomsCount', 'bookingsCount', 'paymentsCount', 'studentsCount', 'managersCount', 'revenue', 'bookingData'));
     }
 
     public function manageHostels()
-    {
-        $hostels = Hostel::with(['manager', 'school', 'subscription'])->get();
-        
+{
+    $hostels = Hostel::with(['manager', 'school', 'subscription'])->get();
 
-        // If you want to customize the data format, you can use the map method
-        $hostelData = $hostels->map(function ($hostel) {
-            $subscriptionStartDate = null;
-            $subscriptionEndDate = null;
+    // If you want to customize the data format, you can use the map method
+    $hostelData = $hostels->map(function ($hostel) {
+        $subscriptionStartDate = null;
+        $subscriptionEndDate = null;
 
-            // Check if the subscription relationship exists and is not empty
-            if ($hostel->subscription && $hostel->subscription->isNotEmpty()) {
-                // Assuming subscription is a collection, loop through it
-                foreach ($hostel->subscription as $subscription) {
-                    $subscriptionStartDate = $subscription->subscription_start_date;
-                    $subscriptionEndDate = $subscription->subscription_end_date;
+        // Check if the subscription relationship exists and is not empty
+        if ($hostel->subscription && $hostel->subscription->isNotEmpty()) {
+            // Assuming subscription is a collection, loop through it
+            foreach ($hostel->subscription as $subscription) {
+                $subscriptionStartDate = $subscription->subscription_start_date;
+                $subscriptionEndDate = $subscription->subscription_end_date;
 
-                    // You can break if you only need data from the first subscription
-                    break;
-                }
+                // You can break if you only need data from the first subscription
+                break;
             }
-            return [
-                'id' => $hostel->id,
-                'name' => $hostel->name,
-                'location' => $hostel->location,
-                'school' => $hostel->school->name,
-                'status' => $hostel->status,
-                'capacity' => $hostel->no_of_rooms,
-                'owner_name' => $hostel->manager->fname.' '. $hostel->manager->lname,
-                'subscription_start_date' => $subscriptionStartDate, 
-                'subscription_end_date' => $subscriptionEndDate,
-                // Add other fields as needed
-            ];
-        });
+        }
+        return [
+            'id' => $hostel->id,
+            'name' => $hostel->name,
+            'location' => $hostel->location,
+            'school' => $hostel->school->name,
+            'status' => $hostel->status,
+            'capacity' => $hostel->no_of_rooms,
+            'owner_name' => $hostel->manager->fname.' '. $hostel->manager->lname,
+            'subscription_start_date' => $subscriptionStartDate, 
+            'subscription_end_date' => $subscriptionEndDate,
+            // Add other fields as needed
+        ];
+    });
 
-        return response()->json($hostelData);
-    }
+    // Pass the $hostelData to the view
+    return view('admin.hostels.index', ['hostelData' => $hostelData]);
+}
+
 
     public function createHostel()
     {

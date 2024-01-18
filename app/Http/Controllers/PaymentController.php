@@ -13,6 +13,7 @@ use App\Models\Booking;
 use App\Models\Payment;
 use function numberToWords;
 use App\Notifications\PaymentNotification;
+use Bmatovu\MtnMomo\Products\Collection;
 
 
 class PaymentController extends Controller
@@ -78,6 +79,28 @@ class PaymentController extends Controller
         } else {
             return redirect()->route('booking.step2', $booking->id)->withMessage(['msg' => 'Payment failed', 'type' => 'error']);
         }
+    }
+
+    public function payMomo(Request $request){
+
+        
+        $metadata = [
+            'booking_id' => $request->booking_id,
+            'user_id' => $request->user_id,
+            // Add more key-value pairs as needed
+        ];
+
+        $payment = array(
+            'amount' => $request->amount * 100, // Amount in kobo (e.g., ₦500.00 is 50000 kobo)
+            'reference' => uniqid('REF'), // Generate a unique reference for the transaction
+            'email' => $request->email, // Customer's email
+            'metadata' => $metadata, // Include the metadata array
+        );
+
+        $collection = new Collection();
+        $referenceId = $collection->requestToPay('20240118001', '46733123454', 100);
+
+          
     }
 
 

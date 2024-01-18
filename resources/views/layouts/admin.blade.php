@@ -4,14 +4,15 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Private Hostels Booking Dashboard</title>
+    <title>QuellHub Admin / Manager Dashboard</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{asset('vendors/mdi/css/materialdesignicons.min.css')}}">
     <link rel="stylesheet" href="{{asset('vendors/base/vendor.bundle.base.css')}}">
+    
     <!-- endinject -->
     <!-- End plugin css for this page -->
     <!-- Include Bootstrap CSS and DataTables CSS -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
+    <link rel="stylesheet" href="{{asset('vendors/datatables.net-bs4/dataTables.bootstrap4.css')}}">
     <!-- inject:css -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
@@ -24,6 +25,11 @@
     <link rel="manifest" href="{{ asset('images/site.webmanifest') }}">
     <!-- endinject -->
     <link rel="shortcut icon" href="{{asset('images/favicon.png')}}" />
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,8 +44,7 @@
             <div class="navbar-brand-wrapper d-flex justify-content-center">
                 <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
                     <a class="navbar-brand brand-logo logo" href="{{route('admin.dashboard')}}"><img class="h-8 w-auto"
-                            src="{{ asset('images/logo.png') }}" alt="logo">
-                        <p style="font-size: 16px">Private<span>Hostels</span></p>
+                            src="{{ asset('images/quellhub_logo.png') }}" alt="logo">
                     </a>
                     <a class="navbar-brand brand-logo-mini" href="index.html"><img src="images/logo-mini.svg"
                             alt="logo" /></a>
@@ -74,38 +79,9 @@
                             aria-labelledby="messageDropdown">
                             <p class="mb-0 font-weight-normal float-left dropdown-header">Messages</p>
                             <a class="dropdown-item">
-                                <div class="item-thumbnail">
-                                    <img src="images/faces/face4.jpg" alt="image" class="profile-pic">
-                                </div>
                                 <div class="item-content flex-grow">
-                                    <h6 class="ellipsis font-weight-normal">David Grey
-                                    </h6>
                                     <p class="font-weight-light small-text text-muted mb-0">
-                                        The meeting is cancelled
-                                    </p>
-                                </div>
-                            </a>
-                            <a class="dropdown-item">
-                                <div class="item-thumbnail">
-                                    <img src="images/faces/face2.jpg" alt="image" class="profile-pic">
-                                </div>
-                                <div class="item-content flex-grow">
-                                    <h6 class="ellipsis font-weight-normal">Tim Cook
-                                    </h6>
-                                    <p class="font-weight-light small-text text-muted mb-0">
-                                        New product launch
-                                    </p>
-                                </div>
-                            </a>
-                            <a class="dropdown-item">
-                                <div class="item-thumbnail">
-                                    <img src="images/faces/face3.jpg" alt="image" class="profile-pic">
-                                </div>
-                                <div class="item-content flex-grow">
-                                    <h6 class="ellipsis font-weight-normal"> Johnson
-                                    </h6>
-                                    <p class="font-weight-light small-text text-muted mb-0">
-                                        Upcoming board meeting
+                                        No message yet
                                     </p>
                                 </div>
                             </a>
@@ -122,40 +98,11 @@
                             <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
                             <a class="dropdown-item">
                                 <div class="item-thumbnail">
-                                    <div class="item-icon bg-success">
-                                        <i class="mdi mdi-information mx-0"></i>
-                                    </div>
                                 </div>
                                 <div class="item-content">
-                                    <h6 class="font-weight-normal">Application Error</h6>
+                                    <h6 class="font-weight-normal">No notification</h6>
                                     <p class="font-weight-light small-text mb-0 text-muted">
                                         Just now
-                                    </p>
-                                </div>
-                            </a>
-                            <a class="dropdown-item">
-                                <div class="item-thumbnail">
-                                    <div class="item-icon bg-warning">
-                                        <i class="mdi mdi-settings mx-0"></i>
-                                    </div>
-                                </div>
-                                <div class="item-content">
-                                    <h6 class="font-weight-normal">Settings</h6>
-                                    <p class="font-weight-light small-text mb-0 text-muted">
-                                        Private message
-                                    </p>
-                                </div>
-                            </a>
-                            <a class="dropdown-item">
-                                <div class="item-thumbnail">
-                                    <div class="item-icon bg-info">
-                                        <i class="mdi mdi-account-box mx-0"></i>
-                                    </div>
-                                </div>
-                                <div class="item-content">
-                                    <h6 class="font-weight-normal">New user registration</h6>
-                                    <p class="font-weight-light small-text mb-0 text-muted">
-                                        2 days ago
                                     </p>
                                 </div>
                             </a>
@@ -220,27 +167,27 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pages/forms/basic_elements.html">
+                        <a class="nav-link" href="#">
                             <i class="mdi mdi-account-multiple-outline menu-icon"></i>
                             <span class="menu-title">Students</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pages/charts/chartjs.html">
+                        <a class="nav-link" href="#">
                             <i class="mdi mdi-chart-pie menu-icon"></i>
                             <span class="menu-title">Bookings</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pages/tables/basic-table.html">
+                        <a class="nav-link" href="#">
                             <i class="mdi mdi-grid-large menu-icon"></i>
                             <span class="menu-title">Messages</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pages/icons/mdi.html">
+                        <a class="nav-link" href="#">
                             <i class="mdi mdi-emoticon menu-icon"></i>
-                            <span class="menu-title">Icons</span>
+                            <span class="menu-title">Subscription</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -270,9 +217,8 @@
                 <footer class="footer">
                     <div class="d-sm-flex justify-content-center justify-content-sm-between">
                         <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright ©
-                            2021</span>
-                        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Private Hostels
-                            Booking</span>
+                            2024</span>
+                        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">QuellHub</span>
                     </div>
                 </footer>
             </div>
@@ -287,6 +233,8 @@
     <!-- endinject -->
     <!-- Plugin js for this page-->
     <script src="{{asset('vendors/chart.js/Chart.min.js')}}"></script>
+    <script src="{{asset('vendors/datatables.net/jquery.dataTables.js')}}"></script>
+    <script src="{{asset('vendors/datatables.net-bs4/dataTables.bootstrap4.js')}}"></script>
     <!-- End plugin js for this page-->
     <!-- inject:js -->
     <script src="{{asset('js/off-canvas.js')}}"></script>
@@ -296,18 +244,22 @@
     <!-- Custom js for this page-->
     <script src="{{asset('js/dashboard.js')}}"></script>
     <script src="{{asset('js/data-table.js')}}"></script>
+    <script src="{{asset('js/jquery.dataTables.js')}}"></script>
+    <script src="{{asset('js/dataTables.bootstrap4.js')}}"></script>
     <!-- End custom js for this page-->
 
     <script src="{{asset('js/jquery.cookie.js')}}" type="text/javascript"></script>
 
-    <!-- Include Bootstrap JavaScript and jQuery from CDN -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <!-- Include jQuery, Bootstrap JS, and DataTables JS -->
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+
+     <!-- Initialize DataTable -->
+     <script>
+        $(document).ready( function () {
+            $('#hostelTable').DataTable();
+        });
+    </script>
+
+    
 
 </body>
 

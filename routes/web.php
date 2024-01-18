@@ -66,6 +66,7 @@ Route::get('booking/invoice/{bookingId}', [PaymentController::class, 'invoice'])
 
 // Payment Routes
 Route::post('/pay', [PaymentController::class, 'redirectToGateway'])->name('pay');
+Route::post('/paymomo', [PaymentController::class, 'payMomo'])->name('paymomo');
 Route::get('/payment/callback', [PaymentController::class, 'handleGatewayCallback']);
 
 // Complaint Routes
@@ -95,12 +96,10 @@ Route::delete('/schools/{school}', 'SchoolController@destroy');
 //Dashboard 
 Route::group(['middleware' => ['auth', AdminMiddleware::class]], function () {
     Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
-    Route::get('/hostels', function () {
-        return view('admin.hostels.index');})->name('hostels');
-    Route::get('/admin/hostels', [DashboardController::class, 'manageHostels']);
+    Route::get('/hostels', [DashboardController::class, 'manageHostels'])->name('hostels');
     Route::get('/admin/hostels/create', [DashboardController::class, 'createHostel'])->name('admin.hostels.create');
     Route::post('/admin/hostels', [DashboardController::class, 'storeHostel'])->name('admin.hostels.store');
     Route::get('/admin/hostels/{id}/edit', [DashboardController::class, 'editHostel'])->name('admin.hostels.edit');
-    Route::put('/admin/hostels/{id}', [DashboardController::class, 'updateHostel'])->name('admin.hostels.update');
-    Route::delete('/admin/hostels/{id}', [DashboardController::class, 'deleteHostel'])->name('admin.hostels.delete');
+    Route::put('/admin/hostels/{id}', [DashboardController::class, 'updateHostel'])->name('admin.hostels.show');
+    Route::delete('/admin/hostels/{id}', [DashboardController::class, 'deleteHostel'])->name('admin.hostels.destroy');
 });

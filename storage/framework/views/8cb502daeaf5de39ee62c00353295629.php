@@ -119,7 +119,7 @@
             text-xs
             font-medium
             uppercase
-            text-gray-500
+            text-blue-500
           "
         >
           Make Payment
@@ -193,7 +193,7 @@
                 </div>
             </div>
             <div class="w-full col-lg-8 px-2">
-                <form id="payment-form" method="post" action="<?php echo e(route('pay')); ?>">
+                <form id="payment-form" method="post">
                     <?php echo csrf_field(); ?>
                     <div class="border-gray-300 border-2 rounded-sm p-4 mb-3">
                         <div class="row items-center">
@@ -223,14 +223,19 @@
                                     <span>Pay later</span>
                                 </button>
                             </div>
-                            <div class="col items-center space-x-3">
+                            <div class="grid grid-cols-3 gap-4">
                                 <a href="<?php echo e(route('home')); ?>"
                                     class="hidden sm:inline md:inline bg-white border-2 border-blue-600 text-blue-500 font-bold px-4 py-3 rounded-lg hover:bg-blue-600">
                                     <span>Pay later</span>
                                 </a>
-                                <button type="submit" id="submit-button"
+                                <button type="submit" id="submit-button" onclick="document.getElementById('payment-form').action = '<?php echo e(route('pay')); ?>';"
                                     class="bg-blue-500 text-white font-bold px-4 py-3 rounded-lg hover:bg-blue-600">
-                                    <span id="submit-text">Complete <i class="bi bi-lock"
+                                    <span id="submit-text">Paystack <i class="bi bi-lock"
+                                            style="font-size:25px"></i></span>
+                                </button>
+                                <button type="submit" id="submit-button" onclick="document.getElementById('payment-form').action = '<?php echo e(route('paymomo')); ?>';"
+                                    class="bg-yellow-500 text-white font-bold px-4 py-3 rounded-lg hover:bg-yellow-600">
+                                    <span id="submit-text">Pay Momo <i class="bi bi-cash"
                                             style="font-size:25px"></i></span>
                                 </button>
                             </div>
