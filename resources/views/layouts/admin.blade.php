@@ -182,13 +182,13 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{route('admin.booking')}}">
                             <i class="mdi mdi-chart-pie menu-icon"></i>
                             <span class="menu-title">Bookings</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{route('admin.message')}}">
                             <i class="mdi mdi-grid-large menu-icon"></i>
                             <span class="menu-title">Messages</span>
                         </a>
@@ -267,6 +267,9 @@
 
         $(document).ready( function () {
             $('#userTable').DataTable();
+        });
+        $(document).ready( function () {
+            $('#bookingTable').DataTable();
         });
     </script>
 

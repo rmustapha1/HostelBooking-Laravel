@@ -177,4 +177,30 @@ class DashboardController extends Controller
          Hostel::destroy($id);
         return redirect()->route('admin.users.index')->with('success', 'User deleted successfully!');
     }
+
+
+    public function bookings(){
+        $bookings= Booking::with(['user', 'room'])->get();
+        $bookingData = $bookings->map(function($booking){
+            $id = $booking->room->hostel_id;
+
+            $hostel = Hostel::find($id);
+
+            return[
+                'id' => $booking->id,
+                'date' => $booking->created_at,
+                'name' => $booking->user->fname.' '.$booking->user->lname,
+                'hostel' => $hostel->name,
+                'room_no' => $booking->room->room_no,
+                'check_in' => $booking->check_in_date,
+                'check_out' => $booking->check_out_date,
+                'price' => $booking->room->price_per_year,
+                'status' => $booking->status,
+
+            ];
+
+        });
+        return view('admin.bookings', ['bookingData' => $bookingData]);
+    }
+
 }

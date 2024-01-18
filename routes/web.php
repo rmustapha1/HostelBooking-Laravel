@@ -96,6 +96,11 @@ Route::delete('/schools/{school}', 'SchoolController@destroy');
 //Dashboard 
 Route::group(['middleware' => ['auth', AdminMiddleware::class]], function () {
     Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+    Route::get('/admin/bookings', [DashboardController::class, 'bookings'])->name('admin.booking');
+    Route::get('/admin/messages', [DashboardController::class, 'messages'])->name('admin.message');
+    Route::get('/admin/bookings/{id}/edit', [DashboardController::class, 'editBooking'])->name('admin.bookings.edit');
+    Route::put('/admin/bookings/{id}', [DashboardController::class, 'updateBooking'])->name('admin.bookings.show');
+    Route::delete('/admin/bookings/{id}', [DashboardController::class, 'deleteBooking'])->name('admin.bookings.destroy');
     // Hostels
     Route::get('/hostels', [DashboardController::class, 'manageHostels'])->name('hostels');
     Route::get('/admin/hostels/create', [DashboardController::class, 'createHostel'])->name('admin.hostels.create');
