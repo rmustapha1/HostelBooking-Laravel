@@ -68,7 +68,7 @@
                                     <i class="mdi mdi-currency-usd me-3 icon-lg text-danger"></i>
                                     <div class="d-flex flex-column justify-content-around">
                                         <small class="mb-1 text-muted">Revenue</small>
-                                        <h5 class="me-2 mb-0">{{$revenue}}</h5>
+                                        <h5 class="me-2 mb-0">GH&#8373;{{$revenue}}</h5>
                                     </div>
                                 </div>
                                 <div
